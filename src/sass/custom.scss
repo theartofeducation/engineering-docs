@@ -1,0 +1,39 @@
+@import "@aoeu/ui-common/sass/modules/colors";
+@import "modules";
+
+$link-color: var(--color-aoeu-allports);
+$active-link-background: var(--color-aoeu-athens-gray);
+
+a {
+  color: $link-color;
+}
+
+.hero {
+  background: var(--color-aoeu-blue);
+}
+
+.menu {
+  &__link {
+    &--active {
+      color: $link-color;
+    }
+  }
+}
+
+.table-of-contents {
+  padding: 0 0 0 0.5rem;
+
+  &__link {
+    &--active {
+      color: $link-color;
+
+      li & {
+        background: $active-link-background;
+      }
+    }
+  }
+}
+
+blockquote {
+  padding: 0 inherit;
+}

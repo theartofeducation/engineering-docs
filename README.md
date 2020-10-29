@@ -1,20 +1,33 @@
-# AoEU Template Repo
+# Website
 
-![CI](https://github.com/theartofeducation/template-repo/workflows/CI/badge.svg?branch=main)
+This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
-This is a template repo all AoEU repos should start with.
+## Installation
 
-## How To Use This Template
+```console
+yarn install
+```
 
-1. Go to the "Create a new repository" page on GitHub
-1. Select this repo as the template in the "Repository template" field
-1. Check the "Include all branches" box
-1. Select "theartofeducation" as the "Owner" of the repository
-1. Add the repository name
-1. Add a short description for the repository
-1. Select "Public" or "Private" as appropriate for the repository
-1. Click the "Create repository" button
-1. Update files and repository information as needed
-1. Once your repo is setup rebase `develop` on `main` and force push to the `origin`
-    * This ensures that `develop` is based on `master` so when you create a PR in
-     the future GitHub will allow it
+## Local Development
+
+```console
+yarn start
+```
+
+This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
+
+## Build
+
+```console
+yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+## Deployment
+
+```console
+GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
