@@ -17,3 +17,9 @@ jobs:
 
       - name: Install
         run: yarn install
+
+      - name: Install markdownlinter-cli
+        run: npm install markdownlint-cli
+
+      - name: Lint all markdown files
+        run: ./node_modules/.bin/markdownlint ./ --ignore node_modules --ignore v5
