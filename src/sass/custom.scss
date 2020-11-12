@@ -2,10 +2,15 @@
 @import "modules";
 
 $link-color: var(--color-aoeu-allports);
+$link-hover-color: var(--color-aoeu-blue);
 $active-link-background: var(--color-aoeu-athens-gray);
 
 a {
   color: $link-color;
+
+  &:hover {
+    color: $link-hover-color;
+  }
 }
 
 .hero {
@@ -25,15 +30,22 @@ a {
 
   &__link {
     &--active {
+      border-radius: 0.25rem;
       color: $link-color;
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
 
       li & {
         background: $active-link-background;
       }
     }
+
+    &:hover {
+      color: $link-hover-color;
+    }
   }
 }
 
 blockquote {
-  padding: 0 inherit;
+  padding: 0 var(--ifm-blockquote-padding-horizontal);
 }
