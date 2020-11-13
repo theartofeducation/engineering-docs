@@ -17,7 +17,6 @@
     "@mdx-js/react": "^1.5.8",
     "clsx": "^1.1.1",
     "docusaurus-plugin-sass": "^0.1.11",
-    "markdownlint": "^0.21.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
@@ -32,5 +31,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "markdownlint-cli": "^0.24.0"
   }
 }
