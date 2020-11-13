@@ -19,6 +19,7 @@ module.exports = {
       "verified-commits",
       "branching-merging",
       "commit-format",
+      "tag-release-publish",
       "story-points",
       "browser-support"
     ],
