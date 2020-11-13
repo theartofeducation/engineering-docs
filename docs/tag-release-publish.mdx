@@ -24,6 +24,8 @@ Complete the following steps in this order to handle releasing and publishing a 
 ### 1. Increment the package version
 
 :::note
+**Ensure you are working in the `main` branch, and that you have pulled the latest code from GitHub to your local repository instance before starting this process**.
+
 ALL of the following should be performed on the **`main`** branch of the project repository _after_ changes have been merged in from the `develop` branch, or whenever you and the team feel it is most appropriate to tag and release a new version of the package (perhaps the team has explicitly decided to hold off until multiple different in-flight changes have been merged in before pushing out a change).
 :::
 
@@ -159,18 +161,24 @@ Once that command has completed successfully and your local changes have been sy
 
 #### Login to the npm registry
 
-Before you will be able to public the package to the npm registry, you will need to be logged in to it. You can login with the following command:
+:::note
+You should be running Yarn v1.x for these steps. We are not using Yarn v2 yet.
+:::
+
+Before you will be able to publish the package to the npm registry, you will need to be logged in to it. You can login with the following command:
 
 ```sh
-yarn npm login --scope aoeu
+yarn login
 ```
+
+Follow the prompts and enter your npm credentials to login.
 
 Once you've successfully logged in, than you will be able to publish your package to it.
 
 For packages that are published as publicly accessible packages to the npm registry, you can execute the following command to publish the package:
 
 ```sh
-yarn npm publish --access public
+yarn publish --access public
 ```
 
 Once this command has completed successfully, you can navigate to the npm registry at [https://npmjs.com/package/@aoeu/YOUR-PACKAGE-NAME](https://npmjs.com/package/@aoeu/YOUR-PACKAGE-NAME) (where YOUR-PACKAGE-NAME is the value specified by the `name` attribute in your project's `package.json` file) to verify there that your package was published as expected and that the newly published version is now the latest available. Once you have verified this, this step will be complete.
@@ -261,6 +269,6 @@ git push origin develop
 
 TODO
 
-## GoLang packages
+## Go packages
 
 TODO

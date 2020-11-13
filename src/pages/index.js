@@ -13,7 +13,9 @@ const features = [
     title: "UI Common Library",
     description: (
       <>
-        Looking for our UI Common Library? <ExternalLink url="https://theartofeducation.github.io/ui-common">All of our shared UI assets
+        Looking for our UI Common Library Documentation?
+        <ExternalLink url="https://theartofeducation.github.io/ui-common">
+        All of our shared UI assets and their accompanying documentation
         can be found there</ExternalLink>.
       </>
     )
