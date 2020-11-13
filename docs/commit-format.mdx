@@ -7,18 +7,18 @@ For all of our JavaScript/UI projects/repositories, we are using [commitlint](ht
 
 Commitlint expects git commit messages to be formatted in a specific manner based on known conventions that tools like Conventional Changelog and Standard Version can use for determining things like how to format the output of updates to `CHANGELOG` files, and how to apply a version update to the project/package. We use [the conventional commitlint configuration](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional) which supports the following commit message prefixes:
 
-* 🛠 `build` - changes that impact the build process
-* ♻️ `ci` - changes that impact the continuous integration process
-* ☑️ `chore` - general house-keeping type chores
-* 📝 `docs` - documentation additions and updates
-* ✨ `feature` - new features
-* 🐞 `fix` - bug fixes
-* 💨 `perf` - performance enhancements
-* 🔨`refactor` - changes that refactor existing code
-* 🙈 `revert` - reverts to previous commits
-* 🎨 `style` - styling (Sass/CSS) changes
-* ✅ `test` - unit/integration testing changes
-* 🚧 `wip` - work in progress commits
+* `build` - changes that impact the build process
+* `ci` - changes that impact the continuous integration process
+* `chore` - general house-keeping type chores
+* `docs` - documentation additions and updates
+* `feature` - new features
+* `fix` - bug fixes
+* `perf` - performance enhancements
+* refactor` - changes that refactor existing code
+* `revert` - reverts to previous commits
+* `style` - styling (Sass/CSS) changes
+* `test` - unit/integration testing changes
+* `wip` - work in progress commits
 
 ## Examples
 
@@ -53,3 +53,28 @@ please work
 ```
 
 ☝🏼 This is not only improperly formatted, but also not helpful
+
+## GitMojis
+
+If you feel like having a little fun with your commit messages, you can add emojis to them with the following codes that correspond to the commit type prefixes:
+
+* 🔨 `build` - `:hammer:`
+* ♻️ `ci` - `:recycle:`
+* ☑️ `chore` - `:white_check_mark:`
+* 📝 `docs` - `:pencil:`
+* ✨ `feature` - `:sparkles:`
+* 🐛 `fix` - `:bug:`
+* ⚡️ `perf` - `:zap:`
+* 🔧`refactor` - `:wrench:`
+* 🙈 `revert` - `:see_no_evil:`
+* 🎨 `style` - `:art:`
+* ✅ `test` - `:white_check_mark:`
+* 🚧 `wip` - `:construction:`
+
+An example commit message using this would look like:
+
+```sh
+git commit -m "docs: :pencil: updated README"
+```
+
+Go on, have a little fun with it, you know you want to. 😆 [More GitMojis can be found here](https://gitmoji.carloscuesta.me/).
