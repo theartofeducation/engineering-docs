@@ -8,7 +8,8 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
-    "serve": "docusaurus serve"
+    "serve": "docusaurus serve",
+    "mdlint": "markdownlint ./ --ignore node_modules --ignore v5"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.66",
@@ -16,6 +17,7 @@
     "@mdx-js/react": "^1.5.8",
     "clsx": "^1.1.1",
     "docusaurus-plugin-sass": "^0.1.11",
+    "markdownlint": "^0.21.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },

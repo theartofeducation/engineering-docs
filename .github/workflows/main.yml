@@ -7,19 +7,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Cache
-        uses: c-hive/gha-yarn-cache@v1
-
       - name: Set-Up Node
         uses: actions/setup-node@v1
         with:
             node-version: "12.x"
 
       - name: Install
-        run: yarn install
+        run: yarn install --production=false
 
-      - name: Install markdownlinter-cli
-        run: npm install markdownlint-cli
-
-      - name: Lint all markdown files
-        run: ./node_modules/.bin/markdownlint ./ --ignore node_modules --ignore v5
+      - name: Lint markdown
+        run: yarn mdlint
