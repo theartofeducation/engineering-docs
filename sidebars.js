@@ -18,6 +18,7 @@ module.exports = {
       "infrastructure",
       "verified-commits",
       "branching-merging",
+      "commit-format",
       "browser-support"
     ],
     Help: [

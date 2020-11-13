@@ -1,0 +1,55 @@
+---
+id: commit-format
+title: Git Commit Formatting
+---
+
+For all of our JavaScript/UI projects/repositories, we are using [commitlint](https://commitlint.js.org/), combined with [Husky](https://typicode.github.io/husky) `commit-msg` hooks to ensure that our git commits are properly formatted. We do this to help ensure a clean, consistent history of commits in our repositories, and because it can help us to automate the process of generating `CHANGELOG.md` files and incrementing package versions (using the [Semantic Versioning (semver) standard](https://semver.org/)) in a consistent and repeatable manner using tools like [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog), [Standard Version](https://github.com/conventional-changelog/standard-version) and [semantic-release](https://semantic-release.gitbook.io/).
+
+Commitlint expects git commit messages to be formatted in a specific manner based on known conventions that tools like Conventional Changelog and Standard Version can use for determining things like how to format the output of updates to `CHANGELOG` files, and how to apply a version update to the project/package. We use [the conventional commitlint configuration](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional) which supports the following commit message prefixes:
+
+* 🛠 `build` - changes that impact the build process
+* ♻️ `ci` - changes that impact the continuous integration process
+* ☑️ `chore` - general house-keeping type chores
+* 📝 `docs` - documentation additions and updates
+* ✨ `feature` - new features
+* 🐞 `fix` - bug fixes
+* 💨 `perf` - performance enhancements
+* 🔨`refactor` - changes that refactor existing code
+* 🙈 `revert` - reverts to previous commits
+* 🎨 `style` - styling (Sass/CSS) changes
+* ✅ `test` - unit/integration testing changes
+* 🚧 `wip` - work in progress commits
+
+## Examples
+
+### Good
+
+```
+feature: added a new component
+```
+
+```
+test(ch123): added unit tests for some functionality
+```
+
+☝🏼 In this example, "ch123" is a reference to a Story/Card in [Clubhouse](https://app.clubhouse.io/aoeu-se).
+
+```
+fix(sis): fixes ch456
+```
+
+☝🏼 In this example, after the "type" prefix, you can include, in parentheses, a reference to a specific feature or portion of the app, in this case, "sis". There are no specific rules to what can be put in the parentheses in cases like this.
+
+### Bad
+
+```
+Added a new component
+```
+
+☝🏼 This commit message is missing a "type" prefix
+
+```
+please work
+```
+
+☝🏼 This is not only improperly formatted, but also not helpful
