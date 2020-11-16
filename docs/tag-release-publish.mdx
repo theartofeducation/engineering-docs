@@ -1,0 +1,274 @@
+---
+id: tag-release-publish
+title: Tagging, Releasing and Publishing
+---
+
+:::note
+This document covers a manual process for handling package releasing and publishing. The process overall may change to something more automated in the future, but for now, these manual steps must be taken and followed closely to ensure that we can accomplish releases accurately and consistently.
+:::
+
+## JavaScript / Web packages
+
+For packages that are intended to be shared and consumable as dependencies in other projects, there are a number of things that need to happen to handle releasing them and making them available for consumption by dependent projects:
+
+* Incrementing the package version
+* Updating a `CHANGELOG.md` file
+* Commiting those changes to the `main` branch of the repository
+* Applying a version tag to the repository
+* Pushing those changes (_with the tag created_) to the `main` branch of the repository on GitHub
+* Publishing the package to the npm and/or GitHub package registry(ies)
+* Rebasing the `develop` branch with `main` to keep them in-sync
+
+Complete the following steps in this order to handle releasing and publishing a new version of a package:
+
+### 1. Increment the package version
+
+:::note
+**Ensure you are working in the `main` branch, and that you have pulled the latest code from GitHub to your local repository instance before starting this process**.
+
+ALL of the following should be performed on the **`main`** branch of the project repository _after_ changes have been merged in from the `develop` branch, or whenever you and the team feel it is most appropriate to tag and release a new version of the package (perhaps the team has explicitly decided to hold off until multiple different in-flight changes have been merged in before pushing out a change).
+:::
+
+We use [Standard Version](https://github.com/conventional-changelog/standard-version) (standard-version) for helping to consistently bump package version numbers in accordance with the [Semantic Versioning (semver) standard](https://semver.org/). [Full documentation for standard-version](https://github.com/conventional-changelog/standard-version#standard-version) can be found in the README file of its repository on GitHub. This can be useful for full details on how to use it, but in most cases, the project you're working on should already be setup with the appropriate tasks for running the tool to increment the version for your project.
+
+#### Configuration
+
+In order for the rest of this workflow to work as documented, in the target project, if it is not already configured in this manner, it is recommended that you add the following configuration block to your project's `package.json` file:
+
+```json
+"standard-version": {
+  "skip": {
+    "commit": true,
+    "tag": true
+  }
+}
+```
+
+This will prevent standard-version from automatically committing the changes that it applies to the `package.json` and `CHANGELOG.md` files, and creating a tag for the release. By not committing these changes, standard-version will automate bumping the version and updating the `CHANGELOG` for you, but will give you the opportunity to review the changes that are made before they are committed to the repository. We will manually make this commit and tag the release in subsequent steps in the workflow.
+
+#### The Basics
+
+In it's most basic form, with no command-line arguments, you should be able to run this command from the root directory of your project:
+
+```sh
+yarn run version
+```
+
+If this task is not already setup in your project, pleasure ensure that Standard Version is installed as a dev dependency, and add this task to the `scripts` section of the `package.json` of your project:
+
+```json
+"version": "standard-version"
+```
+
+#### First Release
+
+If this has not previously been done in your project, and this is the first release for your project, run the following command to run standard-version with the `--first-release` flag, which will tag a release without bumping the version of your project.
+
+```sh
+yarn run version --first-release
+```
+
+#### Dry Run
+
+Standard Version will attempt to read your git commit history and automatically determine how to increment the version number of the project by using the commit types and message content of all of the messages since the last time the project was released (tagged). It can often be a good idea to do a dry-run of this step first, as running it without a dry-run will actually update your `CHANGELOG` and `package.json` files and commit the change to your repository. Performing a dry-run will allow you to see the changes it will apply first.
+
+```sh
+yarn run version --dry-run
+```
+
+Once you've performed a dry-run, if you are satisfied that the output looks as you want it to, then you can run the `version` task with no arguments:
+
+```sh
+yarn run version
+```
+
+#### Forcing Explicit Versions
+
+However, if you wish to explicitly change the version by manually bumping the minor or major version, or if you wish to apply some kind of pre-release tag to your version, you can run one of the following commands:
+
+To explicitly bump the **minor version**:
+
+```sh
+yarn run version --release-as minor
+```
+
+You can also explicitly specify a version as part of your command:
+
+```sh
+yarn run version --release-as 0.17.4
+```
+
+The scenarios above should cover most of your use cases, but for anything beyond this (such as [creating a **pre-release** version](https://github.com/conventional-changelog/standard-version#release-as-a-pre-release), perhaps), you can consult [the standard-version documentation](https://github.com/conventional-changelog/standard-version#standard-version) for additonal details and command line options.
+
+### 2. Update / Review / Verify the CHANGELOG
+
+Because we're using standard-version, the `CHANGELOG.md` file should have already been updated by standard-version as part of the previous step. As a result, unless something has gone wrong (you should be able to check by running `git status` and see `CHANGELOG.md` as a modified file), you should have only to review and verify the changes that were made to it for accuracy.
+
+It is recommended that you either run `git diff` or use your preferred diff/merge tool to review the changes that were made to the `CHANGELOG` file before commit your changes. This would also be the opportunity to make any manual changes that you may deem necessary to this file.
+
+Once you have verified the state of the `CHANGELOG` file, this step will be complete.
+
+### 3. Commit Your Changes
+
+Once you feel confident with the changes that were made to the `CHANGELOG` and that the version bump that was applied to your `package.json` file are correct and what you want for this release, it's time to commit this change to the repository.
+
+Using your preferred git editor, stage these files with the following command:
+
+```sh
+git add CHANGELOG.md package.json
+```
+
+Once those files have been staged, commit them with the following command and commit message:
+
+```sh
+git commit -m "chore(release): <VERSION-NUMBER>"
+```
+
+Where `VERSION-NUMBER` is the new version number that was written to the `package.json` file. This will be the version of the package that will be published to the registry (npm, GitHub, etc).
+
+This should commit the changes to the modified files and complete this step.
+
+### 4. Create a Release Tag
+
+Once you have committed the changes to your `package.json` and `CHANGELOG.md` files, next you will need to create a tag for this release in the repository. You can create a tag with the following command:
+
+
+```sh
+git tag -a v<VERSION-NUMBER> -m "Release v<VERSION-NUMBER>" --sign
+```
+
+Where `VERSION-NUMBER` is the new version number that was written to the `package.json` file. You can omit the use of the `--sign` flag if you have [the `tag.gpgSign` flag](https://git-scm.com/docs/git-config#Documentation/git-config.txt-taggpgSign) set to `true` in your git configuration.
+
+Once the above command has been run successfully, verify that your tag has been applied as expected by running
+
+```sh
+git tag
+```
+
+and verifying that your new tag is in the resulting list of tags. Once you have verified that the tag was created successfully, this step will be complete.
+
+### 5. Push Your Changes to GitHub
+
+Now that you've commited your release changes, and tagged the branch, it's time to push your changes to GitHub. You can push these changes _with the tag you created_ to GitHub with the following command:
+
+```sh
+git push --follow-tags origin main
+```
+
+Once that command has completed successfully and your local changes have been sync'd to GitHub, this step will be complete.
+
+### 6. Publish the Package
+
+#### Login to the npm registry
+
+:::note
+You should be running Yarn v1.x for these steps. We are not using Yarn v2 yet.
+:::
+
+Before you will be able to publish the package to the npm registry, you will need to be logged in to it. You can login with the following command:
+
+```sh
+yarn login
+```
+
+Follow the prompts and enter your npm credentials to login.
+
+Once you've successfully logged in, than you will be able to publish your package to it.
+
+For packages that are published as publicly accessible packages to the npm registry, you can execute the following command to publish the package:
+
+```sh
+yarn publish --access public
+```
+
+Once this command has completed successfully, you can navigate to the npm registry at [https://npmjs.com/package/@aoeu/YOUR-PACKAGE-NAME](https://npmjs.com/package/@aoeu/YOUR-PACKAGE-NAME) (where YOUR-PACKAGE-NAME is the value specified by the `name` attribute in your project's `package.json` file) to verify there that your package was published as expected and that the newly published version is now the latest available. Once you have verified this, this step will be complete.
+
+### 7. Rebase/Sync `develop`
+
+:::important
+This step is critical to ensure that the `develop` branch in the repository stays in sync with the changes that were applied to the `main` branch.
+:::
+
+The final step in the process is to rebase the `main` branch onto the `develop` branch to keep these branches in sync. There are three commands you will need to execute for this to happen:
+
+Switch to the `develop` branch:
+
+```sh
+git checkout develop
+```
+
+Rebase the `main` branch onto `develop`:
+
+```sh
+git rebase main
+```
+
+Push the updates to the `develop` branch to GitHub:
+
+```sh
+git push origin develop
+```
+
+Once all of these steps have completed successfully, this step is complete. This will also complete the overall tag, release and publish process.
+
+🎉
+
+### TLDR Version
+
+If you've been through this process before and are familiar with it and all prerequisites and configuration steps are already completed for you locally, but you just need a list of the commands to execute in order to get through the steps of the process, you've come to the right place.
+
+These are the commands that you will need to execute, in order:
+
+```sh
+yarn run version --dry-run
+```
+
+```sh
+yarn run version
+```
+
+```sh
+git add CHANGELOG.md package.json
+```
+
+```sh
+git commit -m "chore(release): <VERSION-NUMBER>"
+```
+
+```sh
+git tag -a v<VERSION-NUMBER> -m "Release v<VERSION-NUMBER>" --sign
+```
+
+```sh
+git tag
+```
+
+```sh
+git push --follow-tags origin main
+```
+
+```sh
+yarn npm publish --access public
+```
+
+```sh
+git checkout develop
+```
+
+```sh
+git rebase main
+```
+
+```sh
+git push origin develop
+```
+
+🎉
+
+## Python packages
+
+TODO
+
+## Go packages
+
+TODO
