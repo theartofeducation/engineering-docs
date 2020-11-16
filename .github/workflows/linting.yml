@@ -1,4 +1,4 @@
-name: Engineering Docs CI
+name: Engineering Docs Linting
 on: push
 jobs:
   test:

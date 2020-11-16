@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "clean": "docusaurus clear",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",

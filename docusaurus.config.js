@@ -1,8 +1,8 @@
 module.exports = {
   title: "The Art of Education University",
   tagline: "Software Engineering Documentation",
-  url: "https://theartofeducation.github.io/engineering-docs",
-  baseUrl: "/",
+  url: "https://theartofeducation.github.io",
+  baseUrl: "/engineering",
   onBrokenLinks: "throw",
   favicon: "icons/favicon-32x32.png",
   organizationName: "theartofeducation",
@@ -25,10 +25,6 @@ module.exports = {
             {
               label: "Style Guide",
               to: "docs/",
-            },
-            {
-              label: "Second Doc",
-              to: "docs/doc2/",
             }
           ]
         },
