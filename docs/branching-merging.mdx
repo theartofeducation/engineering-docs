@@ -1,13 +1,41 @@
 ---
 id: branching-merging
-title: Branching and Merging
----
-
-TODO
----
-id: branching-merging
 title: Branching and Merging Strategy
 sidebar_label: Branching and Merging
 ---
 
-TODO
+Our git version control workflow consists of the use of two primary base branches, and working branches for chores, features, defect and other [types of development work](commit-format) are created from those base branches. This document provides details about those branches and how source code changes should flow between them.
+
+## `main`
+
+The primary branch that is the source of truth for releases to production in every repository is the `main` branch. Pull requests into the `main` branch should only ever come from either (most commonly) the `develop` branch, after development work has been merged into it, or emergency defect fixes, which will be covered in more detail in a section below.
+
+## `develop`
+
+The `develop` branch is originally sourced from the `main` branch, and is the branch from which all development work should be sourced. This means that all other [types](commit-format) of development branches should be created from the `develop` branch when work is started on them.
+
+## Working Branches
+
+When you wish to begin development on a new task, you would create a branch based off of the `develop` branch with a command similar to the following:
+
+:::important
+Ensure that your currently on the `develop` branch when you execute this command.
+:::
+
+:::note
+For the sake of example, the following commands assume that the work being done will be new feature development.
+:::
+
+```sh
+git checkout -b feature/ch123/some-awesome-new-feature
+```
+
+Once this new branch has been created locally, you can move the card associated with this work in [Clubhouse](https://app.clubhouse.io/aoeu-se) by pushing this new branch to GitHub with the following command:
+
+```sh
+git push -u origin feature/ch123/some-awesome-new-feature
+```
+
+This will setup your local branch to track against the new branch created on the `origin` remote on GitHub, and will trigger our GitHub integration in Clubhouse to automatically move the card associated with the branch to the appropriate column in our development workflow there.
+
+We encourage committing to working branches early and often, and pushing your local changes to GitHub regularly (no less than once per day typically), so that the current state of your work is available there should another team member need to either pull down or take over your work for any reason.
