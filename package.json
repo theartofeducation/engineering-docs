@@ -13,7 +13,9 @@
     "mdlint": "markdownlint ./ --ignore node_modules --ignore v5"
   },
   "dependencies": {
-    "@aoeu/ui-common": "^0.0.2",
+    "@aoeu/logo-svgs": "^0.1.0",
+    "@aoeu/sass-common": "^0.1.0",
+    "@aoeu/external-link": "^0.1.0",
     "@docusaurus/core": "2.0.0-alpha.66",
     "@docusaurus/preset-classic": "2.0.0-alpha.66",
     "@mdx-js/react": "^1.5.8",
@@ -27,7 +29,8 @@
     "@commitlint/config-conventional": "^11.0.0",
     "@commitlint/prompt": "^11.0.0",
     "husky": "^4.3.0",
-    "markdownlint-cli": "^0.24.0"
+    "markdownlint-cli": "^0.24.0",
+    "sass": "^1.30.0"
   },
   "browserslist": {
     "production": [
