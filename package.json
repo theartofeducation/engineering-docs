@@ -13,9 +13,9 @@
     "mdlint": "markdownlint ./ --ignore node_modules --ignore v5"
   },
   "dependencies": {
-    "@aoeu/logo-svgs": "^0.1.0",
-    "@aoeu/sass-common": "^0.1.0",
-    "@aoeu/external-link": "^0.1.0",
+    "@aoeu/logo-svgs": "^0.1.1",
+    "@aoeu/sass-common": "^0.1.1",
+    "@aoeu/external-link": "^0.1.1",
     "@docusaurus/core": "2.0.0-alpha.66",
     "@docusaurus/preset-classic": "2.0.0-alpha.66",
     "@mdx-js/react": "^1.5.8",
