@@ -6,7 +6,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import AOEULogo from "@aoeu/logo-svgs/aoeu-logo-horizontal.svg"
 import { ExternalLink } from "@aoeu/external-link"
 import useBaseUrl from "@docusaurus/useBaseUrl"
-import styles from "./styles.module.css"
+import styles from "./styles.module.scss"
 
 const features = [
   {

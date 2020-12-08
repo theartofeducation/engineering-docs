@@ -106,20 +106,20 @@
     "@algolia/logger-common" "4.5.1"
     "@algolia/requester-common" "4.5.1"
 
-"@aoeu/external-link@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@aoeu/external-link/-/external-link-0.1.0.tgz#2fe7db68cb6e5bc6308d27f89f2c13c559a140ac"
-  integrity sha512-db9NUv3XDdIX/CqOQpsMh8Wmm08GwGheuTrSIuZTOpwM7t9cNKUQBhF1jrwAa7hF1NOxRdB/A4q1B5cZlgApNA==
+"@aoeu/external-link@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@aoeu/external-link/-/external-link-0.1.1.tgz#7d343e3e407ee08f7e4a7ac6e2ba4115ec123b06"
+  integrity sha512-lN8nMTqEsjP+7KZa6p4ey4+UlevLWlvuDyv0SNWqlB5DKsYdTwvgSH8HK++ilNIpiiEsd4APR7EXqjSoxl8c6w==
 
-"@aoeu/logo-svgs@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@aoeu/logo-svgs/-/logo-svgs-0.1.0.tgz#1853adfb8c421ec1681dc1c27217d6e13fc85d7c"
-  integrity sha512-x7AxdPGmDJpy2p6hy/vDmXpd1Gm4e945psKtNAylWUBRTka0YjywqDgQtuNxwCuZfWItq7nS6+zb1Vb1w0G1WQ==
+"@aoeu/logo-svgs@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@aoeu/logo-svgs/-/logo-svgs-0.1.1.tgz#7e5046140941f7b407c324aef75b03c1e2deb284"
+  integrity sha512-Wf7XJiELX/TNj/MoWyKXQMzqXnLniRtUn+l0BEs0Oospkk25Nw0FUcBeDLes9OYeNPzeQQWzqS4e1xOaQM4E0w==
 
-"@aoeu/sass-common@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@aoeu/sass-common/-/sass-common-0.1.0.tgz#4019d2e008f022bbe1241d0a245c67281609b2a5"
-  integrity sha512-zf5kgzg4FJ1lNBbE74VIF6U7iG5z+/iRf0N2TiN7Cwgwzl40G3a7zol1ltHdeUrqnwuXKmSdLKj6+yIFw1XpGQ==
+"@aoeu/sass-common@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@aoeu/sass-common/-/sass-common-0.1.1.tgz#64cf6aaf5834fd4997ed407c7e667d500f13763d"
+  integrity sha512-YeT7HWuoigghjbQ2hfxp8NKL3BfdAXYOcDwv72XFcMoRXrBb3GTk2PhFa5t/CZBJGiSkkH8xThCJskmhv3CLtA==
 
 "@babel/code-frame@7.8.3":
   version "7.8.3"
