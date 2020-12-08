@@ -2,7 +2,7 @@ module.exports = {
   title: "The Art of Education University",
   tagline: "Software Engineering Documentation",
   url: "https://theartofeducation.github.io",
-  baseUrl: "/engineering/",
+  baseUrl: "/engineering-docs/",
   onBrokenLinks: "throw",
   favicon: "icons/favicon-32x32.png",
   organizationName: "theartofeducation",
@@ -24,7 +24,7 @@ module.exports = {
           items: [
             {
               label: "Style Guide",
-              to: "docs/",
+              to: "pages/",
             }
           ]
         },
@@ -62,6 +62,8 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
+          path: "docs",
+          routeBasePath: "pages",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl:
             "https://github.com/theartofeducation/engineering-docs",
