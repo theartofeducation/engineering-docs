@@ -39,8 +39,9 @@
   align-items: center;
   display: flex !important;
   flex-direction: column;
-  justify-content: center;
-  min-height: 15rem;
+  justify-content: start;
+  min-height: 10rem;
+  padding: 2rem 0;
 }
 
 .features {

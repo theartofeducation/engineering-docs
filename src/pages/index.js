@@ -3,8 +3,8 @@ import clsx from "clsx"
 import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
-import AOEULogo from "@aoeu/logo-svgs/aoeu-logo-horizontal.svg"
-import { ExternalLink } from "@aoeu/external-link"
+import AOEULogo from "../images/aoeu-logo-horizontal.svg"
+import { ExternalLink } from "../components/external-link"
 import useBaseUrl from "@docusaurus/useBaseUrl"
 import styles from "./styles.module.scss"
 
@@ -13,8 +13,7 @@ const features = [
     title: "UI Common Library",
     description: (
       <>
-        Looking for our UI Common Library Documentation?
-        <ExternalLink url="https://theartofeducation.github.io/ui-common">
+        Looking for our UI Common Library Documentation? <ExternalLink url="https://theartofeducation.github.io/ui-common">
         All of our shared UI assets and their accompanying documentation
         can be found there</ExternalLink>.
       </>
