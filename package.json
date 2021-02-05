@@ -6,16 +6,13 @@
     "docusaurus": "docusaurus",
     "clean": "docusaurus clear",
     "start": "docusaurus start",
-    "build": "docusaurus build --out-dir build/engineering-docs",
+    "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
     "mdlint": "markdownlint ./ --ignore node_modules --ignore v5"
   },
   "dependencies": {
-    "@aoeu/logo-svgs": "^0.1.1",
-    "@aoeu/sass-common": "^0.1.1",
-    "@aoeu/external-link": "^0.1.1",
     "@docusaurus/core": "2.0.0-alpha.66",
     "@docusaurus/preset-classic": "2.0.0-alpha.66",
     "@mdx-js/react": "^1.5.8",
