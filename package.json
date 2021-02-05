@@ -6,7 +6,7 @@
     "docusaurus": "docusaurus",
     "clean": "docusaurus clear",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "docusaurus build --out-dir build/engineering-docs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
