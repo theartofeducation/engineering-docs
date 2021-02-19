@@ -4,6 +4,7 @@ module.exports = {
       "getting-started",
       "technology-stack",
       "software-development-lifecycle",
+      "implementation-testing-workflow",
       "code-reviews",
       {
         type: "category",
