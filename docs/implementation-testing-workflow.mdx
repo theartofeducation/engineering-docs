@@ -1,0 +1,15 @@
+---
+id: implementation-testing-workflow
+title: Implementation and Testing Workflow
+---
+
+1. **Developer**: Create a new feature branch based on `develop` (this should automate the moving of the card from the Ready to Develop column to In Development)
+1.
+  * **QA**: QA starts writing test plans for testing the feature/defect that is under development
+  * **Developer**: Starts working on the implementation of the feature/defect fix
+1. **Developer**: Implements the feature/defect fix and submits a PR for merging in to the `develop` branch
+1. Ideally, the work to implement the feature/defect fix and the work to define tests cases for it by QA would be completed at roughly the same time, or at least pretty close.
+1. **QA**: Tests and accepts/rejects the implementation via manual testing in a preview environment that is deployed from and based on the feature branch.
+1. Once the implementation has been approved and merged in to the `develop` branch...
+1. **QA**: Defines a task on the implementation card for the work on automated tests, and extracts that task to a new/separate card in the "In Development" column to initiate work on writing automated tests.
+1. **QA**: Creates a new branch based on the `develop` branch in which automated tests for the feature can be written.
