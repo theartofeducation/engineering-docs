@@ -26,8 +26,6 @@ id: my-awesome-new-document
 title: My Awesome New Document
 ---
 
-# This is gonna be AWESOME
-
 Oh man, you're really gonna love this...
 ```
 
