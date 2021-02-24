@@ -37,10 +37,18 @@ a {
       li & {
         background: $active-link-background;
       }
+
+      code {
+        color: $link-color;
+      }
     }
 
     &:hover {
       color: $link-hover-color;
+
+      code {
+        color: $link-hover-color;
+      }
     }
   }
 }

@@ -8,9 +8,8 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
-    "mdlint": "markdownlint ./ --ignore node_modules --ignore v5"
+    "lint": "markdownlint ./ --ignore node_modules --ignore v5"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.66",
@@ -44,7 +43,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "yarn run mdlint"
+      "pre-push": "yarn run lint"
     }
   }
 }

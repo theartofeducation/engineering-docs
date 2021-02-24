@@ -2,6 +2,7 @@ module.exports = {
   docs: {
     Guides: [
       "getting-started",
+      "accessibility",
       "technology-stack",
       "software-development-lifecycle",
       "implementation-testing-workflow",
