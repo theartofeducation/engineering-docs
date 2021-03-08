@@ -3,6 +3,7 @@ module.exports = {
     Guides: [
       "getting-started",
       "mission-statement",
+      "philosophy",
       "accessibility",
       "technology-stack",
       "software-development-lifecycle",
