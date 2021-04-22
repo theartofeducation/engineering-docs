@@ -16,7 +16,14 @@ module.exports = {
           "best-practices/internationalization"
         ]
       },
-      "branching-merging",
+      {
+        type: "category",
+        label: "Source Control (Git)",
+        collapsed: true,
+        items: [
+          "source-control/branching-merging"
+        ]
+      },
       "technology-stack",
       "software-development-lifecycle",
       "implementation-testing-workflow",
