@@ -12,7 +12,8 @@ module.exports = {
         collapsed: false,
         items: [
           "best-practices/accessibility",
-          "best-practices/documentation"
+          "best-practices/documentation",
+          "best-practices/internationalization"
         ]
       },
       "technology-stack",
