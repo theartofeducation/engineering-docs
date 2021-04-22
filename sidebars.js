@@ -27,6 +27,7 @@ module.exports = {
       },
       "technology-stack",
       "software-development-lifecycle",
+      "policies-and-procedures",
       "implementation-testing-workflow",
       {
         type: "category",
