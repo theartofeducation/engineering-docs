@@ -11,7 +11,8 @@ module.exports = {
         label: "Best Practices",
         collapsed: false,
         items: [
-          "best-practices/accessibility"
+          "best-practices/accessibility",
+          "best-practices/documentation"
         ]
       },
       "technology-stack",
