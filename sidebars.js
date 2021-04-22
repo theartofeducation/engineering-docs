@@ -21,13 +21,13 @@ module.exports = {
         label: "Source Control (Git)",
         collapsed: true,
         items: [
-          "source-control/branching-merging"
+          "source-control/branching-merging",
+          "source-control/code-reviews"
         ]
       },
       "technology-stack",
       "software-development-lifecycle",
       "implementation-testing-workflow",
-      "code-reviews",
       {
         type: "category",
         label: "Coding Standards",
