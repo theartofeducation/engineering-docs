@@ -9,13 +9,14 @@ module.exports = {
       {
         type: "category",
         label: "Best Practices",
-        collapsed: false,
+        collapsed: true,
         items: [
           "best-practices/accessibility",
           "best-practices/documentation",
           "best-practices/internationalization"
         ]
       },
+      "branching-merging",
       "technology-stack",
       "software-development-lifecycle",
       "implementation-testing-workflow",
@@ -23,7 +24,7 @@ module.exports = {
       {
         type: "category",
         label: "Coding Standards",
-        collapsed: false,
+        collapsed: true,
         items: [
           "coding-standards/python",
           "coding-standards/javascript",
@@ -32,7 +33,6 @@ module.exports = {
       },
       "infrastructure",
       "verified-commits",
-      "branching-merging",
       "commit-format",
       "tag-release-publish",
       "story-points",
