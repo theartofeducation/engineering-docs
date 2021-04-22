@@ -4,9 +4,16 @@ module.exports = {
       "getting-started",
       "mission-statement",
       "philosophy",
-      "accessibility",
       "team-responsibilities-and-traits",
       "roles",
+      {
+        type: "category",
+        label: "Best Practices",
+        collapsed: false,
+        items: [
+          "best-practices/accessibility"
+        ]
+      },
       "technology-stack",
       "software-development-lifecycle",
       "implementation-testing-workflow",
