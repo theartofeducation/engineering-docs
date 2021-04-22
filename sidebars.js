@@ -25,6 +25,7 @@ module.exports = {
           "source-control/code-reviews"
         ]
       },
+      "wordpress-bug-tracking",
       "technology-stack",
       "software-development-lifecycle",
       "policies-and-procedures",
