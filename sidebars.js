@@ -22,7 +22,10 @@ module.exports = {
         collapsed: true,
         items: [
           "source-control/branching-merging",
-          "source-control/code-reviews"
+          "source-control/code-reviews",
+          "source-control/verified-commits",
+          "source-control/commit-format",
+          "source-control/tag-release-publish"
         ]
       },
       "wordpress-bug-tracking",
@@ -41,9 +44,6 @@ module.exports = {
         ]
       },
       "infrastructure",
-      "verified-commits",
-      "commit-format",
-      "tag-release-publish",
       "story-points",
       "browser-support"
     ],
