@@ -6,6 +6,7 @@ module.exports = {
       "philosophy",
       "accessibility",
       "team-responsibilities-and-traits",
+      "roles",
       "technology-stack",
       "software-development-lifecycle",
       "implementation-testing-workflow",
