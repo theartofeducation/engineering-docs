@@ -1,5 +1,5 @@
 ---
-id: accessibility
+slug: /best-practices/accessibility
 title: Accessibility (a11y)
 ---
 
