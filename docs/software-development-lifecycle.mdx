@@ -3,7 +3,7 @@ id: software-development-lifecycle
 title: Software Development Lifecycle
 ---
 
-In general, a developer should a WIP (work in progress) limit of 1 story at a time (In Development through Complete). The developer claims ownership of that story through the entire development cycle.
+In general, a developer should have a WIP (work in progress) limit of 1 story at a time (In Development through Complete). The developer claims ownership of that story through the entire development cycle.
 
 1. Backlog
     * This list holds stories for future work
@@ -12,7 +12,7 @@ In general, a developer should a WIP (work in progress) limit of 1 story at a ti
 1. Ready For Development
     * These are stories that are ready to be worked on
     * All stories in this state should be pointed
-    * Storiees in this state will be scheduled to be worked on during a current or future interation
+    * Stories in this state will be scheduled to be worked on during a current or future interation
     * When a developer is ready for a new story they will take one from this list that is assigned to them and for the current interation
     * If there are no stories assigned to the developer they can pick an unassigned story
 1. In Development
@@ -21,6 +21,7 @@ In general, a developer should a WIP (work in progress) limit of 1 story at a ti
     * Once a developer has finished work on a story it is moved to the QA Ready column
     * The developer opens a Pull Request from the feature branch into develop
     * When testing, QA moves the card to the QA Testing column and will manually test the story and create automated tests
+    * When testing, QA moves the card to the QA Testing column and will manually test the story and create the test cases that will define the Automation work after the card is moved to Accepted
     * If QA finds issues they will add them to the story and move the card to the Rejected column
     * Once there are no issues related to the story, QA moves the card to the QA Done column
     * Once the Pull Request has approval from QA and the other requested developers it is merged into `develop` and moved to the Acceptance column
@@ -33,10 +34,10 @@ In general, a developer should a WIP (work in progress) limit of 1 story at a ti
     * These cards have been identified by the Product Team as ready for production release
     * The responsible developer will open a Pull Request to merge `develop` into `main`
     * Once the Pull Request has the required approval the developer will merge the request and start a production build
-    * Once the story has been merged into `main`, it is moved to the Complete
+    * Once the story has been merged into `main`, it is moved to the Completed column
 1. Rejected
     * These cards have been identified by QA or the Product Team as not meeting the story requirements
     * The responsible developer will move the card back into the In Development column and address the identified issues
-    * The story follows the normal cycle starting from In Development
+    * The story follows the normal cycle starting from the In Development column
 1. Complete
     * These cards are completed stories that have been pushed to production
