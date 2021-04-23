@@ -1,25 +1,28 @@
 ---
 id: branching-merging
+slug: /source-control/branching-merging
 title: Branching and Merging Strategy
 sidebar_label: Branching and Merging
 ---
 
 Our git version control workflow consists of the use of two primary base branches, and working branches for chores, features, defect and other [types of development work](commit-format) are created from those base branches. This document provides details about those branches and how source code changes should flow between them.
 
-## `main`
+## main
 
 The primary branch that is the source of truth for releases to production in every repository is the `main` branch. Pull requests into the `main` branch should only ever come from either (most commonly) the `develop` branch, after development work has been merged into it, or emergency defect fixes, which will be covered in more detail in a section below.
 
-## `develop`
+## develop
 
 The `develop` branch is originally sourced from the `main` branch, and is the branch from which all development work should be sourced. This means that all other [types](commit-format) of development branches should be created from the `develop` branch when work is started on them.
+
+The `develop` branch is used on acceptance servers for product acceptance.
 
 ## Working Branches
 
 When you wish to begin development on a new task, you would create a branch based off of the `develop` branch with a command similar to the following:
 
 :::important
-Ensure that your currently on the `develop` branch when you execute this command.
+Ensure that you're currently on the `develop` branch and it is up to date when you execute this command.
 :::
 
 :::note
@@ -30,6 +33,8 @@ For the sake of example, the following commands assume that the work being done 
 git checkout -b feature/ch123/some-awesome-new-feature
 ```
 
+The branch name should contain the type of change being made and the Clubhouse story ID. This will ensure the card is linked to the code changes and our automated workflow is triggered. Every card in Clubhouse has a Git helper you can copy and paste for branch names.
+
 Once this new branch has been created locally, you can move the card associated with this work in [Clubhouse](https://app.clubhouse.io/aoeu-se) by pushing this new branch to GitHub with the following command:
 
 ```sh
@@ -39,3 +44,6 @@ git push -u origin feature/ch123/some-awesome-new-feature
 This will setup your local branch to track against the new branch created on the `origin` remote on GitHub, and will trigger our GitHub integration in Clubhouse to automatically move the card associated with the branch to the appropriate column in our development workflow there.
 
 We encourage committing to working branches early and often, and pushing your local changes to GitHub regularly (no less than once per day typically), so that the current state of your work is available there should another team member need to either pull down or take over your work for any reason.
+
+When a working branch is ready for testing, make sure it is up to date with the current `develop` branch by performing a merge into your working branch with either the `--fast-forward` or `--rebase` flags. Open a PR into the `develop` branch. The code will be reviewed and approved before merging. Delete all working branches after they are merged into `develop`. You should always perform a squash merge when merging into `develop`.
+
