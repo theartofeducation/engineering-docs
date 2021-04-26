@@ -38,9 +38,9 @@ module.exports = {
         label: "Coding Standards",
         collapsed: true,
         items: [
+          "coding-standards/javascript-react",
           "coding-standards/python",
-          "coding-standards/javascript",
-          "coding-standards/react",
+          "coding-standards/go",
         ]
       },
       "infrastructure",

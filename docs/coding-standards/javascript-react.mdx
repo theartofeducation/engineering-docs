@@ -1,0 +1,70 @@
+---
+title: "JavaScript and React/JSX"
+slug: /coding-standards/javascript-react
+---
+
+## ESLint
+
+We use [ESLint](https://eslint.org/) to perform static analysis and enforce coding standards on all of our JavaScript code. We have created [our own custom ESLint config](https://github.com/theartofeducation/eslint-config-aoeu) (_work in progress_) that [extends](https://eslint.org/docs/user-guide/configuring/configuration-files#extending-configuration-files) the [Google shareable config](https://github.com/google/eslint-config-google), which is based on [Google's JavaScript style guide](https://google.github.io/styleguide/jsguide.html), and which liberally extends the shareable [eslint:recommended configuration](https://github.com/kunalgolani/eslint-config/tree/master/packages/recommended).
+
+## JavaScript, the important parts
+
+While we like Google's JavaScript style guide as a general baseline, we have defined some of our own customizations to that guide that support our organizational preferences. This section will attempt to outline and highlight the significant distinctions between Google's ESLint config, and our customizations to it, that are the most signficant for you to be aware of.
+
+### [`semi`](https://eslint.org/docs/rules/semi#require-or-disallow-semicolons-instead-of-asi-semi)
+
+We exclude the use of semicolons at the end of statements in our JavaScript.
+
+ESLint rule definition:
+```
+"semi": ["error", "never"]
+```
+
+#### **Examples**
+
+Bad:
+
+```
+const foo = "bar";
+```
+
+Good:
+
+```
+const foo = bar
+```
+
+The only possible exception to this rule would be the use of an indexed `for` loop, in which case we would typically prefer functional alternatives such as the use of `map` and/or `forEach` functions on `Array.prototype`.
+
+### [`quotes`](https://eslint.org/docs/rules/quotes)
+
+We use double-quotes for string literals, with the exception of strings that require double-quotes within the string, in which case we allow the use of backticks for template literals.
+
+ESLint rule definition:
+```
+"quotes": ["error", "double", { "avoidEscape": true, "allowTemplateLiterals": true }]
+```
+
+#### **Examples**
+
+Bad:
+
+```
+const errMessage = 'Just, don\'t do it.'
+```
+
+Good:
+
+```
+const errMessage = "This is just much better"
+
+// or
+
+const errMessage = `This is acceptable when you need to "quote something"`
+```
+
+## React and JSX
+
+## Other / Miscellaneous
+
+TODO: _Markdown, MDX, etc_
