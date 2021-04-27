@@ -3,4 +3,16 @@ title: "Python"
 slug: /coding-standards/python
 ---
 
-TODO
+For our Python code, we use a collection of community tools to help enforce code style and standards to keep our code consistent.
+
+## Black
+
+We use [Black](https://github.com/psf/black), which is maintained and provided by the Python Software Foundation, as our **code formatter**. Documentation for Black can be found on [it's GitHub repository](https://github.com/psf/black), and [the public documentation site](https://black.readthedocs.io/) for the tool.
+
+## Pylint
+
+We use [Pylint](https://github.com/PyCQA/pylint) for **static analysis** of our code to help ensure that our code remains consistent and high quality. Documentation for Pylint can be found on [it's GitHub repository](https://github.com/PyCQA/pylint) and [the public documentation site](https://pylint.pycqa.org/) for the tool.
+
+## Flake8
+
+Under the hood, Pylint uses [Flake8](https://github.com/PyCQA/flake8) for checking coding style and quality.
