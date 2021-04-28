@@ -1,0 +1,297 @@
+---
+title: "JavaScript and React/JSX"
+slug: /coding-standards/javascript-react
+---
+
+## ESLint
+
+We use [ESLint](https://eslint.org/) to perform static analysis and enforce coding standards on all of our JavaScript code. We have created [our own custom ESLint config](https://github.com/theartofeducation/eslint-config) that [extends](https://eslint.org/docs/user-guide/configuring/configuration-files#extending-configuration-files) the [Google shareable config](https://github.com/google/eslint-config-google), which is based on [Google's JavaScript style guide](https://google.github.io/styleguide/jsguide.html), and which liberally extends the shareable [eslint:recommended configuration](https://github.com/kunalgolani/eslint-config/tree/master/packages/recommended).
+
+ESLint has the benefit of providing functionality to both check and enforce our coding standards, but also perform static analysis for certain elements of code quality as well, such as [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity). This helps us keep our code quality high, but has the additional benefit of helping us focus the tests we write for our code as well.
+
+If you wish to see the details of our JavaScript and React coding standards, you are encouraged to review that/those configurations and/or documentation.
+
+<!--
+:::note
+You may be wondering about our use (or rather, lack of use) of [Prettier](https://prettier.io/). While we recognize Prettier as a very popular and valuable tool used widely throughout the JS community, it's opinions are a bit too strong for our tastes. Particularly with regards to how it formats JSX, we are not huge fans of it, and it does not have the ability to override the settings for certain JSX formatting opinions that we don't prefer. It is for these reasons that we choose not to use Prettier in our JavaScript projects.
+:::
+-->
+
+## Custom ESLint Config
+
+We strongly recommend (lit: require) the use of [our custom ESLint configuration](https://github.com/theartofeducation/eslint-config) on all JavaScript/React projects.
+
+### Installation
+
+With Yarn (recommended):
+
+```
+yarn add -D @aoeu/eslint-config
+```
+
+Or, with npm:
+
+```
+npm install -D @aoeu/eslint-config
+```
+
+### Configuration
+
+We recommend the creation of an `.eslintrc.js` file for [configuration](https://eslint.org/docs/user-guide/configuring/configuration-files) (for consistency throughout our projects). For simple JavaScript projects, as a baseline, it can be configured like this:
+
+```js
+module.exports = {
+  extends: [
+    "@aoeu/eslint-config"
+  ]
+}
+```
+
+For [React](https://reactjs.org/) projects:
+
+```js
+module.exports = {
+  extends: [
+    "@aoeu/eslint-config",
+    "@aoeu/eslint-config/react"
+  ]
+}
+```
+
+And for projects that include tests (which should be _all_ of our projects) (we use [Jest](https://jestjs.io/)):
+
+```js
+module.exports = {
+  extends: [
+    "@aoeu/eslint-config",
+    "@aoeu/eslint-config/react",
+    "@aoeu/eslint-config/testing"
+  ]
+}
+```
+
+The above configuration includes [Jest](https://jestjs.io/) and [TestCafe](https://testcafe.io/) globals, and rules specific to those tools and common issues relevant to test fixtures.
+
+### Usage
+
+Once you've added the configuration to your project, you can/should add the following task/script to your projects `package.json` file to execute linting:
+
+```json
+// package.json
+{
+  "name": "your-project",
+  "scripts": {
+    "eslint": "eslint src testing next.config.js --ext js,jsx"
+  }
+}
+```
+
+In the above task, `eslint` is the command to run, and `src`, `testing` and `next.config.js` are the files and folders that you wish for ESLint to be run in, and the `--ext` argument tells ESLint the file extensions to look for to perform linting in.
+
+This task/script can be run from your terminal/cli with the following command:
+
+```
+yarn run eslint
+```
+
+And you will/should see the output of the command in your terminal. In our projects, we expect all pull requests (PR) to be submitted with no ESLint errors or warnings, and this should be configured as part of your projects continuous integration workflow run as a GitHub action, to be run each time a change is commited to a PR.
+
+### Editor Integration
+
+Most modern code editors can have ESLint integrated into them such that it is run whenever a change is saved to a file, so you should be warned of ESLint errors and warnings in nearly real-time during the course of your development.
+
+The following extensions are available for these known editors.
+
+* Visual Studio Code: [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* Sublime Text: [SublimeLinter](https://packagecontrol.io/packages/SublimeLinter) with the [ESLint plugin](https://packagecontrol.io/packages/ESLint) and the [SublimeLinter-eslint interface](https://packagecontrol.io/packages/SublimeLinter-eslint).
+* Vim: [vim-eslint plugin](https://github.com/dgraham/vim-eslint)
+* JetBrains WebStorm: [ESLint plugin](https://plugins.jetbrains.com/plugin/7494-eslint)
+
+Integrations for other editors are available, but those are the most popular ones in use at this time.
+
+## JavaScript, the important parts 😏
+
+While we like Google's JavaScript style guide as a general baseline, we have defined some of our own customizations to that guide that support our organizational preferences. This section will attempt to outline and highlight the significant distinctions between Google's ESLint config, and our customizations to it, that are the most signficant for you to be aware of.
+
+### [`semi`](https://eslint.org/docs/rules/semi#require-or-disallow-semicolons-instead-of-asi-semi)
+
+We exclude the use of semicolons at the end of statements in our JavaScript.
+
+ESLint rule definition:
+```
+"semi": ["error", "never"]
+```
+
+#### **Examples**
+
+Bad:
+
+```
+const foo = "bar";
+```
+
+Good:
+
+```
+const foo = "bar"
+```
+
+The only possible exception to this rule would be the use of an indexed `for` loop, in which case we would typically prefer functional alternatives such as the use of `map` and/or `forEach` functions on `Array.prototype`.
+
+### [`quotes`](https://eslint.org/docs/rules/quotes)
+
+We use double-quotes for string literals, with the exception of strings that require double-quotes within the string, in which case we allow the use of backticks for template literals.
+
+ESLint rule definition:
+```
+"quotes": ["error", "double", { "avoidEscape": true, "allowTemplateLiterals": true }]
+```
+
+#### **Examples**
+
+Bad:
+
+```
+const errMessage = 'Just, don\'t do it.'
+```
+
+Good:
+
+```
+const errMessage = "This is just much better"
+
+// or
+
+const errMessage = `This is acceptable when you need to "quote something"`
+```
+
+### [`complexity`](https://eslint.org/docs/rules/complexity)
+
+The default complexity threshold for this rule set by ESLint is 20. We believe that is too high, and we have customized this rule to allow for a maximum complexity of 10. We feel that if you have written code that exceeds a complexity threshold of 10, that this is an indicator that your code is too complex, and some thought should be put into how it can be broken down and simplified. An effort such as this would have a number of benefits, but one of the primary ones would be making it much more easily tested with automated tests.
+
+ESLint rule definition:
+```
+"complexity": ["error", { max: 10 }]
+```
+
+#### **Examples**
+
+Bad:
+
+```js
+const isNumber = input => {
+  if (input === 1) {
+    return true
+  }
+
+  if (input === 2) {
+    return true
+  }
+
+  if (input === 3) {
+    return true
+  }
+
+  if (input === 4) {
+    return true
+  }
+
+  if (input === 5) {
+    return true
+  }
+
+  if (input === 6) {
+    return true
+  }
+
+  if (input === 7) {
+    return true
+  }
+
+  if (input === 8) {
+    return true
+  }
+
+  if (input === 9) {
+    return true
+  }
+
+  if (input === 10) {
+    return true
+  }
+
+  if (input === 11) {
+    return true
+  }
+
+  if (input === 12) {
+    return true
+  }
+}
+```
+
+Good:
+
+```js
+const isNumber = input => {
+  if (input > 0 && input <= 12) {
+    return true
+  }
+}
+```
+
+## React and JSX
+
+Our custom React/JSX configuration primarily revolves around accessibility (a11y) rule enforcement and React Hooks best practices, but there are a couple of minor stylistic preferences in there as well. Everything else is enforced by the default/recommended settings of [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react), [eslint-plugin-react-hooks](https://github.com/facebook/react/tree/master/packages/eslint-plugin-react-hooks) and [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y).
+
+### [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
+
+We have this rule set to the `after-props` setting.
+
+ESLint rule definition:
+
+```
+"react/jsx-closing-bracket-location": ["error", "after-props"]
+```
+
+#### **Examples**
+
+Bad:
+
+```jsx
+<Hello
+  firstName="John"
+  lastName="Smith"
+/>
+```
+
+Good:
+
+```jsx
+<Hello
+  firstName="John"
+  lastName="Smith" />
+```
+
+Having this rule in place prevents "orphaned" closing brackets:
+
+Bad:
+
+```jsx
+<Notice
+  type="info"
+  heading="Hello"
+>
+  <p>World</p>
+</Notice>
+```
+
+Good:
+
+```jsx
+<Notice
+  type="info"
+  heading="Hello">
+  <p>World<p>
+</Notice>
+```
