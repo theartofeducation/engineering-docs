@@ -4,14 +4,62 @@ slug: /source-control/code-reviews
 title: Code Reviews
 ---
 
-Code reviews are an important part of the SDLC and code quality. Code reviews serve several purposes:
+Code reviews are an important part of the <abbr title="Software Development Life Cycle">SDLC</abbr> and code quality; they are a critical part of the process of introducing both new code and/or changes to existing code into the codebase of a project. Code reviews serve several purposes:
 
 * Ensure consistent style and standards.
-* Help find possible issues before they are released.
-* Provide optimization suggestions.
-* Help with knowledge transfer amongst the team.
+* Help find possible issues before they are released into the wild.
+* Help to provide suggestions for security, optimization, best practices, etc.
+* Help with knowledge transfer amongst the team (we can all learn a lot from a code review).
 
-All Pull Requests will only be merged after passing the QA process and having 2 approved reviews from developers that did not contribute to the PR.
+This document provides an overview for how we practice code reviews at The Art of Education University (AOEU).
+
+## Practice empathy, code is personal
+
+Whether you've ever thought into it this much, or whether you want to admit it or not, code reviews are not just logical exercises, they're personal too. All code at some level or other is the product of a human being (yes, even generated code), and it's important to remember that when reviewing it, _and especially_ when providing feedback on it. Humans are emotional creatures, and all coders, to at least some degree, take a certain amount of pride in the code that they write. It is a reflection of each individuals personal knowledge, skill and experience level, and most consider the quality of their code to be a personal reflection on them as unique individuals.
+
+For many developers, it can be a daunting and sometimes even frightening thing, to submit a pull request (PR) for code review knowing that it's going to be reviewed and critiqued. This is why it's important for us all to remember to review code and provide feedback on it with empathy for the author, and to provide [not only critical, but also positive feedback as well](https://sparkbox.com/foundry/stop_giving_depressing_code_reviews).
+
+### Be objective (both ways)
+
+Regardless of your role in a code review, whether you're the reviewer, or the author of the code, it's important to do your best to try to be as objective about your role in this process as possible. This point may seem obvious, but it feels worth saying it anyway. If you're the reviewer, keep your feedback about the code, and not the author. Be direct, provide as much detail as is practical and possible in your feedback (remember it can often be as helpful to include the _why_ as it is the _what_), and above all else, _be nice about it_.
+
+If you're the author of the code, and receive critique, don't take it personally. We're all just trying to do our job and deliver the best product possible within the constraints in which it is being delivered. Take feedback at face value, and use it to learn and improve your code and your craft.
+
+## Good PRs make code reviews easier
+
+In order to be able to effectively review the code in a PR, it's critical for the reviewer(s) to have a clear understanding of what the _intent_ of the changes being proposed are. For our development team at AOEU, _at a **bare minimum**_, a PR should include **a meaningful title**, and **a link to the issue/task/card in our project management system** ([Clubhouse](https://app.clubhouse.io/aoeu-se)) that is driving the change<super>*</super>. This should be the bare minimum for all of our code reviews. Yes, words can be hard, but its worth the time and effort to put some thought into a meaningful and descriptive title for your PRs.
+
+Beyond that, its up to the author of the PR to determine how much additional information a PR should have. Some definitely require more than others. Screen captures, and even animated gifs or videos can often be useful in providing context for the problem the changes in the PR are attempting to fix. Use your best judgment, but know that the more context you can provide, the easier it will be for reviewers to provide meaningful and useful feedback. Sparkbox has a couple of excellent articles with some great information on what makes for a good pull request: [Creating Good Pull Requests](https://sparkbox.com/foundry/creating_good_pull_requests), and [GitHub Pull Requests for Everyone](https://sparkbox.com/foundry/github_pull_requests_for_everyone).
+
+:::note
+**<super>*</super>** It is possible, but should be _a rare exception_, that there is no card in our project management system driving a proposed change to code. It happens, but should definitely not happen very often.
+:::
+
+## Better, unambiguous feedback with Severity Level Identifiers (SLIs)
+
+The fine development team at Netlify shared [an excellent article that they wrote about how they have improved their internal code review process through the use of what they call "Feedback Ladders."](https://www.netlify.com/blog/2020/03/05/feedback-ladders-how-we-encode-code-reviews-at-netlify/) We really liked this article and the approach they've taken, and have decided to use it for inspiration and adopt a similar approach to our own internal code review process. Similar to feedback ladders, we are adopting a system of identifiers that help qualify the severity level of the feedback, and associating each severity level with a quickly and easily identifiable emoji that represents the severity level of the feedback.
+
+This system of identifiers can help improve our code review process by removing some of the ambiguity in elements of feedback in a code review. We use GitHub PRs as the basis for our code review process, and for the most part, the exchange of information among team members in a PR is asynchronous, disconnected and almost entirely via text-based communication. Text based communication can be challenging, as it lacks the nuances of verbal and face-to-face communication such as body language and voice inflection, which can often make the intent or tone of a comment or statement much clearer than if the same were communicated simply via text. As a result, it can often be unclear as to whether a piece of feedback on a PR is severe enough to block the PR from approval, or is intended more as an initiation of an exchange or deeper conversation about an issue.
+
+To help remove some of this ambiguity, we prefer that all elements of feedback on a PR be prefixed with one of the following severity level identifiers, to help communicate to the author the intended severity level of the feedback.
+
+:::note
+This list is inteded to be used as a reference for all involved in code reviews at AOEU as the basis for understanding the severity level of comments and feedback left on PRs, and their associated meaning and intent.
+:::
+
+### Severity Level Identifier List
+
+The following is a list of all of our officially documented Severity Level Identifiers, including the emoji that should be used to prefix the comment, along with the GitHub short code that can be used to render the emoji, and a description of what it means and how/when the issue should be addressed by the author.
+
+- https://gist.github.com/AliMD/3344523 (for reference, remove before publish)
+- https://api.github.com/emojis (for reference, remove before publish)
+
+* 🚨 `:rotating_light:` - this is a **blocking issue**, and must be corrected before the PR will be approved. Comments with this SLI should always include a recommendation for what and how to correct the issue.
+* 🛡 `:shield:` - this is a **blocking issue**, and identifies a (potential?) security issue, and must be corrected before the PR will be approved. Comments with this SLI should always include a recommendation for what and how to correct the issue.
+
+----
+
+All PRs will only be merged after passing the QA process and having 2 approved reviews from developers that did not contribute to the PR.
 
 
 TODO: summarize and incorporate some of the ideas from [this article](https://www.netlify.com/blog/2020/03/05/feedback-ladders-how-we-encode-code-reviews-at-netlify/) into a summary of how we prefer to do code reviews.
