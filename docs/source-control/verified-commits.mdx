@@ -4,4 +4,12 @@ slug: /source-control/verified-commits
 title: Git Verified Commits
 ---
 
-TODO
+By default, the identity of the author of a commit in a GitHub repository is provided by nothing more the local git configuration. This reality makes it very easy to change your local git configuration to use and apply the identity information of another individual (whatever name and email address you wish to configure locally) to change the information associated with a commit(s) in a git repository.
+
+It is for this reason that we require the configuration and use of signed/verified commits in all of our git repositories. GitHub describes commit signature verification in this way:
+
+> Using GPG or S/MIME, you can sign tags and commits locally. These tags or commits are marked as verified on GitHub so other people can be confident that the changes come from a trusted source.
+
+![Verified commit visual on GitHub](verified-commit.png)
+
+[You can find more information about how git and GitHub can use verified commit signatures to help ensure the integrity of commits to code repositories in the GitHub documentation](https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification).
