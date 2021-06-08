@@ -4,7 +4,7 @@ slug: /source-control/code-reviews
 title: Code Reviews
 ---
 
-Code reviews are an important part of the <abbr title="Software Development Life Cycle">SDLC</abbr> and code quality; they are a critical part of the process of introducing both new code and/or changes to existing code into the codebase of a project. Code reviews serve several purposes:
+Code reviews are an important part of the <abbr title="Software Development Life Cycle">SDLC</abbr> and the production and delivery of quality code; they are a critical part of the process of introducing both new code and/or changes to existing code into the codebase of a project. Code reviews serve several purposes:
 
 * Ensure consistent style and standards.
 * Help find possible issues before they are released into the wild.
@@ -29,7 +29,7 @@ If you're the author of the code, and receive critique, don't take it personally
 
 In order to be able to effectively review the code in a PR, it's critical for the reviewer(s) to have a clear understanding of what the _intent_ of the changes being proposed are. For our development team at AOEU, _at a **bare minimum**_, a PR should include **a meaningful title**, and **a link to the issue/task/card in our project management system** ([Clubhouse](https://app.clubhouse.io/aoeu-se)) that is driving the change<super>*</super>. This should be the bare minimum for all of our code reviews. Yes, words can be hard, but its worth the time and effort to put some thought into a meaningful and descriptive title for your PRs.
 
-Beyond that, its up to the author of the PR to determine how much additional information a PR should have. Some definitely require more than others. Screen captures, and even animated gifs or videos can often be useful in providing context for the problem the changes in the PR are attempting to fix. Use your best judgment, but know that the more context you can provide, the easier it will be for reviewers to provide meaningful and useful feedback. Sparkbox has a couple of excellent articles with some great information on what makes for a good pull request: [Creating Good Pull Requests](https://sparkbox.com/foundry/creating_good_pull_requests), and [GitHub Pull Requests for Everyone](https://sparkbox.com/foundry/github_pull_requests_for_everyone).
+Beyond that, its up to the author of the PR to determine how much additional information a PR should have. Some definitely require more than others. Screen captures, and even animated gifs or videos can often be useful in providing context for the problem the changes in the PR are attempting to fix. Use your best judgment, but know that the more context you can provide, the easier it will be for reviewers to provide meaningful and useful feedback. Sparkbox has a couple of excellent articles with some great information on what makes for a good pull request: [Creating Good Pull Requests](https://sparkbox.com/foundry/creating_good_pull_requests), and [GitHub Pull Requests for Everyone](https://sparkbox.com/foundry/github_pull_requests_for_everyone). Both should be considered strongly recommended reading.
 
 :::note
 **<super>*</super>** It is possible, but should be _a rare exception_, that there is no card in our project management system driving a proposed change to code. It happens, but should definitely not happen very often.
@@ -51,15 +51,22 @@ This list is inteded to be used as a reference for all involved in code reviews 
 
 The following is a list of all of our officially documented Severity Level Identifiers, including the emoji that should be used to prefix the comment, along with the GitHub short code that can be used to render the emoji, and a description of what it means and how/when the issue should be addressed by the author.
 
-- https://gist.github.com/AliMD/3344523 (for reference, remove before publish)
-- https://api.github.com/emojis (for reference, remove before publish)
+* 🚨 `:rotating_light:` - This is a **blocking issue**, and must be corrected before the PR will be approved. Comments with this SLI should always include a recommendation for what and how to correct the issue.
+* ⚠️ `:warning:` - This is a **non-blocking issue**, but will require documented, follow-up action in the future. Comments/feedback with this SLI will most often require the addition of a `TODO:` comment in the code, that includes an accompanying link to an issue in our project management system, i.e. `TODO: CH12345 - This needs to be better`.
+* 💅🏼 `:nail_care:` - This is a stylistic issue with the code, and in the vast majority of cases should be **non-blocking**. Stylistic issues with the code should be discussed rarely during code reviews, as they should most often be taken care of before the code ever gets into the review process by our linters, and our coding standards ([JavaScript/React](/pages/coding-standards/javascript-react), [Go](/pages/coding-standards/go), and [Python](/pages/coding-standards/python)). These feedback issues can often result in discussion or back-and-forth that can result in a decision, that could (should?) result in a change to our linters or coding standards to help avoid similar discussions in the future. When that is the case, it should result in an actionable card/task in our project management system.
+* 🤔 `:thinking:` - This should be used for questions or requests for clarification. This can sometimes be blocking, depending on the nature of the question and scenario, but typically these are non-blocking, and should be used for help in learning, and just generally understanding the nature or intent of the code.
+* ❓ `:question:` - This is an alternative to the previous (thinking) SLI, and should be considered an equal option, or alias. The two can be used interchangeably for questions.
+* In keeping with efforts to help keep our code reviews positive, we also strongly recommend the use of the following SLIs to identify encouraging or positive feedback. Any comments/feedback with any of the following SLIs should never be blocking.
+  * ✨ `:sparkles:`
+  * 💥 `:boom:`
+  * 👍🏼 `:thumbsup:`
+  * 💪🏼 `:muscle:`
+  * 😍 `:heart_eyes:`
 
-* 🚨 `:rotating_light:` - this is a **blocking issue**, and must be corrected before the PR will be approved. Comments with this SLI should always include a recommendation for what and how to correct the issue.
-* 🛡 `:shield:` - this is a **blocking issue**, and identifies a (potential?) security issue, and must be corrected before the PR will be approved. Comments with this SLI should always include a recommendation for what and how to correct the issue.
+## Code Review Approval
 
-----
+All of our GitHub repositories should be configured to support this (to the extent possible), but even when not, our recommended rule for Code Review / PR approval is that a PR should only be merged under the following conditions:
 
-All PRs will only be merged after passing the QA process and having 2 approved reviews from developers that did not contribute to the PR.
-
-
-TODO: summarize and incorporate some of the ideas from [this article](https://www.netlify.com/blog/2020/03/05/feedback-ladders-how-we-encode-code-reviews-at-netlify/) into a summary of how we prefer to do code reviews.
+* **Approved by QA** - This means that the code being reviewed has been reviewed, tested and approved by QA. This most commonly is identified by the associated card being moved to the "QA Done" column on the board in our project management system.
+* **2 Approved Developer Reviews** - The code has been reviewed and approved by two developer peers.
+* **All configured CI tasks pass** - Most (if not all) of our repositories should be setup and configured to run GitHub actions to perform certain Continous Integration (CI) tasks (perform linting, run unit tests, automated regression tests, etc). All configured CI tasks for the project must pass before the PR can be merged.
