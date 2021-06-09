@@ -24,8 +24,7 @@ module.exports = {
           "source-control/branching-merging",
           "source-control/code-reviews",
           "source-control/verified-commits",
-          "source-control/commit-format",
-          "source-control/tag-release-publish"
+          "source-control/commit-format"
         ]
       },
       "wordpress-bug-tracking",
