@@ -5,19 +5,61 @@ title: Branching and Merging Strategy
 sidebar_label: Branching and Merging
 ---
 
-Our git version control workflow consists of the use of two primary base branches, and working branches for chores, features, defect and other [types of development work](commit-format) are created from those base branches. This document provides details about those branches and how source code changes should flow between them.
+Depending on the type of project a git repository is for, we have two primary git workflows, that make use of different base branches. This document provides an overview of those two project types, and the base branch setup and git workflow for each type.
 
-## main
+## Library Projects
+
+Standalone, publishable and consumable library projects most commonly will only make use of a single primary base branch, `main`. For these types of projects, a `develop` branch doesn't make sense, and unnecessarily complicates things.
+
+### `main`
+
+The `main` branch in these projects is the source of truth for published library versions, and is the branch from which all working (chore/feature/defect/etc) branches should be sourced from, and should be the target of all pull requests from working branches.
+
+### Working Branches
+
+When you wish to begin development on a new task, you would create a working branch based off of the `main` branch with a command similar to the following:
+
+:::important
+Ensure that you're currently on the `main` branch and it is up to date when you execute this command.
+:::
+
+:::note
+For the sake of example, the following commands assume that the work being done will be new feature development. See our [Git Commit Formatting](commit-format) documentation for details about other valid types of working branches.
+:::
+
+```sh
+git checkout -b feature/ch123/some-awesome-new-feature
+```
+
+See the [Branch Naming Conventions](#branch-naming-conventions) and [Managing Working Branches](#managing-working-branches) sections below for more information on branch naming and managing working branches.
+
+## Deployable, API or Web Hosted Projects
+
+These type of projects consist of the use of two primary base branches, and working branches for chores, features, defect and other [types of development work](commit-format) are created from those base branches.
+
+### `main`
 
 The primary branch that is the source of truth for releases to production in every repository is the `main` branch. Pull requests into the `main` branch should only ever come from either (most commonly) the `develop` branch, after development work has been merged into it, or emergency defect fixes, which will be covered in more detail in a section below.
 
-## develop
+:::important
+**You should always create a merge commit when merging from `develop` into `main`.**
+
+When merging pull requests from the `develop` branch into `main` on GitHub, specifically, when using the "big green button" to merge it, for these kinds of projects, for the sake of maintainable branch history in which the commit SHAs remain in sync with the `develop` branch, we need to ensure that the "Merge pull request" (also labelled "Create a merge commit" in the button's dropdown menu) option is selected when merging.
+:::
+
+### `develop`
 
 The `develop` branch is originally sourced from the `main` branch, and is the branch from which all development work should be sourced. This means that all other [types](commit-format) of development branches should be created from the `develop` branch when work is started on them.
 
 The `develop` branch is used on acceptance servers for product acceptance.
 
-## Working Branches
+:::important
+**You should always squash and merge when merging from working branches into `develop`.**
+
+When merging pull requests from working branches into the `develop` branch on GitHub, specifically, when using the "big green button" to merge it, for these kinds of projects, for the sake of the cleanest, most clear and maintainable branch history, we need to ensure that the "Squash and merge" option is selected when merging.
+:::
+
+### Working Branches
 
 When you wish to begin development on a new task, you would create a branch based off of the `develop` branch with a command similar to the following:
 
@@ -26,24 +68,46 @@ Ensure that you're currently on the `develop` branch and it is up to date when y
 :::
 
 :::note
-For the sake of example, the following commands assume that the work being done will be new feature development.
+For the sake of example, the following commands assume that the work being done will be new feature development. See our [Git Commit Formatting](commit-format) documentation for details about other valid types of working branches.
 :::
 
 ```sh
 git checkout -b feature/ch123/some-awesome-new-feature
 ```
 
-The branch name should contain the type of change being made and the Clubhouse story ID. This will ensure the card is linked to the code changes and our automated workflow is triggered. Every card in Clubhouse has a Git helper you can copy and paste for branch names.
+See the [Branch Naming Conventions](#branch-naming-conventions) and [Managing Working Branches](#managing-working-branches) sections below for more information on branch naming and managing working branches.
 
-Once this new branch has been created locally, you can move the card associated with this work in [Clubhouse](https://app.clubhouse.io/aoeu-se) by pushing this new branch to GitHub with the following command:
+## Managing Working Branches
+
+When you setup your working branch with the conventions outlined in the [Branch Naming Conventions](#branch-naming-conventions) section below, your branch will be setup to facilitate the automated workflow between GitHub and Clubhouse. This integration supports the automatic movement of cards (in most cases) across the board as your working branch moves through the different stages of work as you progress through your task.
+
+After creating your new working branch, even before you've made any changes or commits to it, you can push it to GitHub with the following command:
 
 ```sh
-git push -u origin feature/ch123/some-awesome-new-feature
+$ git push -u origin feature/ch123/some-awesome-new-feature
 ```
 
-This will setup your local branch to track against the new branch created on the `origin` remote on GitHub, and will trigger our GitHub integration in Clubhouse to automatically move the card associated with the branch to the appropriate column in our development workflow there.
+This will setup your local branch to track against the new branch created on the remote (most commonly `origin` on GitHub), and will trigger our GitHub integration workflow in Clubhouse to automatically move the card associated with the branch into the appropriate column (typically when you're starting new work on a card, this will move it from "Ready for Development" to "In Development").
 
-We encourage committing to working branches early and often, and pushing your local changes to GitHub regularly (no less than once per day typically), so that the current state of your work is available there should another team member need to either pull down or take over your work for any reason.
+We encourage committing to working branches early and often, and pushing your local changes to GitHub regulary (no less than once per day typically), so that the current state of your work is available there should another team member need to either pull down or take over your work for any reason.
 
-When a working branch is ready for testing, make sure it is up to date with the current `develop` branch by performing a merge into your working branch with either the `--fast-forward` or `--rebase` flags. Open a PR into the `develop` branch. The code will be reviewed and approved before merging. Delete all working branches after they are merged into `develop`. You should always perform a squash merge when merging into `develop`.
+When a working branch is ready for testing, make sure that it is up-to-date with the current base branch (either `develop` or `main`, depending on the project type) by performing a merge into your working branch with either the `--fast-forward` or `--rebase` flags. Open a PR into the base branch. The code will be reviewed and approved before merging. Delete all working branches after they are merged into the base branch in the repository. **You should always perform a squash merge when merging into the base branch from a working branch**.
 
+## Branch Naming Conventions
+
+Our branch naming convention is most commonly to use forward-slash delimited (`/`) strings with three segments that represent the following elements that help uniquely identify the branch:
+
+* **Type of work** - This is a string that uniquely identifies the _type of work_ that's being done in the branch. Examples of this would be things like `feature`, `chore` and `fix`. See our [Git Commit Formatting](commit-format) documentation for a full list of valid options.
+* **Card/Task ID number** - This represents the card/task ID from our project management system that the work being done is associated with. For our sake, using Clubhouse, this would look something like `ch12345`.
+* **Description** - This should be a terse, descriptive string that, to the most effective extent possible, represents the work that is being done in the branch. An example would be something like `user-profile-delete-email`.
+
+When the three segments from the above are combined, this branch name would be:
+```
+feature/ch12345/user-profile-delete-email
+```
+
+Including the Clubhouse card ID in the branch name ensures that the card is linked to your working branch on GitHub, and triggers the integration and automated workflow between the two. Every card in Clubhouse has a git helper which you can copy and paste to create branch names.
+
+## Merging vs Rebasing
+
+Git is a powerful, sometimes seemingly almost magical tool, that takes time to understand and become proficient with. It has two primary mechanisms for how to approach keeping branches in-sync, **merging and rebasing**. Understanding the differences between the two, and more specifically, when to use one or the other, can be one of the most difficult things to wrap your head around. [Atlassian has produced a fantastic article that walks through, in great detail, the differences between these two approaches, the advantages and disadvantages of each, and when to use them and why](https://www.atlassian.com/git/tutorials/merging-vs-rebasing). We consider it to be required reading for developers at AOEU.
