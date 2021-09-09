@@ -5,24 +5,33 @@ title: Software Development Lifecycle
 
 In general, an engineer should have a WIP (work in progress) limit of 1 story at a time (**In Development** through **Complete**). The engineer claims ownership of that story through the entire development cycle.
 
-> Library projects do not have a `develop` branch and feature branches will be merged directly into `main`. This breaks the automation in Clubhouse and those cards will need to be moved manually.
+> Library projects do not have a `develop` branch and feature branches will be merged directly into `main`. This breaks the automation in [Shortcut](https://shortcut.com/) and those cards will need to be moved manually.
 
+1. Backlog
+    * This is the default column
+    * Stories that need more information or planning before development work will be added or moved here
+    * When a story has been deemed ready it will be moved to **Ready For Development**
 1. Ready For Development
-    * These are stories that are ready to be worked on
+    * These are stories that are ready to be worked on by engineering
     * All stories in this state should have story points
-    * Stories in this state will be scheduled to be worked on during a current or future interation
-    * When an engineer is ready for a new story they will take one from this column that is assigned to the current interation
+    * When an engineer is ready for a new story they will take one from this column this column and assign it to the current iteration
     * Creating a Git branch referrencing the story ID will automatically move the story to the **In Development** column
 1. In Development
     * These are stories that are actively being worked on by an engineer
     * An engineer should normally have no more than 1 story in this column at a time
-1. QA (Quality Assurance)
+1. QA Ready
     * Once an engineer has finished work on a story it is moved to the QA Ready column
     * The enginer opens a Pull Request from their feature branch into `develop`
-      * This will move the card from **In Development** to **QA**
-    * When testing, QA moves the card to the **QA Testing** column and will manually test the story and create the test cases that will define the automation work after the card is moved to **Accepted**
+      * This will move the card from **In Development** to **QA Ready**
+1. QA Testing
+    * When a QA engineer starts testing a story, they will move the card to this column
+    * The QA engineer will manually test the story
+    * The QA engineer will write automated tests for the story
+        * A branch with the same name as the feature branch will be created in the QA E2E repo
     * If QA finds issues they will add them to the story and move the card to the **Rejected** column
-    * Once there are no issues related to the story, QA moves the card to the **QA Done** column
+    * Once there are no issues related to the story and automated tests are complete, QA moves the card to the **QA Done** column
+1. QA Done
+    * Cards in this column have passed QA and have automated tests written for it
     * Once the Pull Request has approval from QA and the other requested developers it is merged into `develop` and automatically moved to the **Acceptance** column
 1. Acceptance
     * When a working branch is merged into `develop` a build will start for an acceptance server
