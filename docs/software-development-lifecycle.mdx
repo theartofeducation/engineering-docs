@@ -23,6 +23,7 @@ In general, an engineer should have a WIP (work in progress) limit of 1 story at
     * Once an engineer has finished work on a story it is moved to the QA Ready column
     * The enginer opens a Pull Request from their feature branch into `develop`
       * This will move the card from **In Development** to **QA Ready**
+    * If a card has the **No QA** label it is manually moved directly to **QA Done**
 1. QA Testing
     * When a QA engineer starts testing a story, they will move the card to this column
     * The QA engineer will manually test the story
@@ -38,6 +39,7 @@ In general, an engineer should have a WIP (work in progress) limit of 1 story at
     * The Product Team will evaluate stories in this column to ensure the implementation meets the requirements
     * If a story does not meet the requirements Product will move the card to **Rejected** and add details
     * Once a story meets the requirements, Product will move the card to **Accepted** to indicate it is ready for production release
+    * If a card has the **No ACC** label it is manually moved directly to **Accepted**
 1. Accepted
     * These cards have been identified by the Product Team as ready for production release
     * The responsible engineer will open a Pull Request to merge `develop` into `main`
