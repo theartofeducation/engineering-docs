@@ -12,6 +12,7 @@ module.exports = {
         collapsed: true,
         items: [
           "best-practices/accessibility",
+          "best-practices/dependency-updates",
           "best-practices/documentation",
           "best-practices/internationalization"
         ]
