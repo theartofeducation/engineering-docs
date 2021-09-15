@@ -12,6 +12,7 @@ module.exports = {
         collapsed: true,
         items: [
           "best-practices/accessibility",
+          "best-practices/dependency-updates",
           "best-practices/documentation",
           "best-practices/internationalization"
         ]
@@ -24,7 +25,8 @@ module.exports = {
           "source-control/branching-merging",
           "source-control/code-reviews",
           "source-control/verified-commits",
-          "source-control/commit-format"
+          "source-control/commit-format",
+          "source-control/new-repo"
         ]
       },
       "wordpress-bug-tracking",

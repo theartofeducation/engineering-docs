@@ -1,0 +1,10 @@
+---
+slug: /best-practices/dependency-updates
+title: Dependency Updates
+---
+
+When [Dependabot](https://dependabot.com/) creates a PR to update a dependency, it is nearly always because there is a newer version that has security fixes over the version that is currently being used. The nice thing about this is that Dependabot creates pull requests in [GitHub](https://github.com/) to get these changes reviewed, and the pull requests that it creates are like any other pull request, which means that all of our configured PR rules will apply, which means that all of our CI tasks will be run, to ensure that no tests are broken, and no linting issues have been introduced. Merging these PRs in will also require the same review approvals that all PRs require, so they will be required to have not only the full number of approved reviews, but also will be required to be signed off on by QA and the codeowner as well.
+
+Our standard process ensures that in the vast majority of cases, the proposed update should be fine. However, we want to be at very least cautious about reviewing and approving these changes to help identify the scope of impact of the library being updated. In many cases, Dependabot will be proposing an update to a small library that is a nested dependency whose focus and functionality will be very specific functionality, and will only have potential impact on a minimal amount of code. However, in some cases, the proposed update could be much more broadly scoped and could have significant, sweeping impact to the functionality of the app.
+
+For example, recently, Dependabot proposed an update to [Next.js](https://nextjs.org/) in a frontend application. Next.js is the foundational framework that the project is based on. The update was significant and would have had a huge potential impact on the application. In these cases, we will want to have some conversation around how we want to vet the proposed updates before considering it. In some cases we may choose to simply close the PR and create a story to vet and test the update when we can prioritize the time to go through the project fully.
