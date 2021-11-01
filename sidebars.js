@@ -45,6 +45,7 @@ module.exports = {
         ]
       },
       "infrastructure",
+      "sprint-planning",
       "story-points",
       "browser-support"
     ],
