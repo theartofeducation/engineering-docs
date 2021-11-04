@@ -17,8 +17,8 @@ slug: /sprint-planning
 1. Look at the last 3 months to determine the team's average velocity
 1. Go back to the "Everything" Space on the "Stories" page
 1. Review and assign WordPress Legacy work that needs to be prioritized for the next Iteration
-1. Go to the "Milestone" page for each team
-1. Review, prioritize, point, and assign Stories for the next Iteration and move them to the "Ready For Development" Column
+1. Go to the "Milestone" page for Milestone in progress
+1. That Milestone's Team will review, prioritize, point, and assign Stories for the next Iteration and move them to the "Ready For Development" Column
 1. Go back to the "Stories" Page
 1. Uncheck the "No Iteration" Filter
 1. Review the assigned Stories to make sure no team member is overwhelmed and we are not exceeding our average velocity
