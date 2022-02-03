@@ -1,6 +1,10 @@
+---
+slug: /qa/shortcut-testplan-setup
+title: Shortcut/Test Plan Setup
+---
 ## Shortcut/Test Plan Setup
 
-**Shortcut**
+## Shortcut
 
 Shortcut is the Project Management software our team uses for managing all projects, features, bugs, etc.
 You’ll be given access to [AOEU’s Software Engineering board](https://app.shortcut.com/aoeu-se/stories/space/126/everything). This document’s intent is to describe your role as a QA Engineer when using Shortcut.
@@ -12,6 +16,7 @@ When creating a card, the following is required:
 **Title:** A succinct description of the body of work the card will address
 **Description:** A deeper explanation of the title.
 If the card is a bug, the following fields with markdown are required:
+
 * `## Expected:`
 * `## Actual:`
 * `## Users Affected:`
@@ -38,9 +43,9 @@ The [Test Plan Template](https://docs.google.com/document/d/1x9SMIE0oQKkLs-1dHoj
 * Click the “Select” button and click the checkbox “Share it with the same people”
 * Copy the link of the Shortcut card and paste it in the newly created Test Plan document “Card:” field
 In the Clubhouse card, click “Edit Description” and in the Description field, enter this text/markdown:
-  * `Test Plan: []()`
-  * `Test Suite: []()`
-  * `Test Run: []()`
+    * `Test Plan: []()`
+    * `Test Suite: []()`
+    * `Test Run: []()`
 * Copy the link of the newly created Test Plan document and paste it in the parenthese of the Test Plan. Enter the title of the Test Plan in the Brackets
 * Open Qase.io
 * Click the Project Name icon
@@ -48,9 +53,9 @@ In the Clubhouse card, click “Edit Description” and in the Description field
 * If the Epic name does not display within the Mileston project, click "Create Suite". This will be the parent suite
 * For the card we are working on, click the Epic Parent Suite, and click “Create Suite”
 * From the popup that displays, enter the title in the following format:
-  * Suite Name: Input the name of the Shortcut Card, the Project it’s connected with, and an annotated Card Reference. Example: User Base Profile: User-Service - CL307
-  * Parent Suite: The parent suite is the suite (Epic) selected from the Suite Tree - this represents the Epics in Clubhouse
-  * Description: A short description of the card and its function and a link to the Shortcut card for trackability
+    * Suite Name: Input the name of the Shortcut Card, the Project it’s connected with, and an annotated Card Reference. Example: User Base Profile: User-Service - CL307
+    * Parent Suite: The parent suite is the suite (Epic) selected from the Suite Tree - this represents the Epics in Clubhouse
+    * Description: A short description of the card and its function and a link to the Shortcut card for trackability
 * Click “Create”
 * Find and click the newly create Test Suite created in Qase
 * Copy the link of the Test Suite
