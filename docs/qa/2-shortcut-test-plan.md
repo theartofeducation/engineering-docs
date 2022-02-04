@@ -1,5 +1,5 @@
 ---
-slug: /qa/shortcut-testplan-setup
+slug: /qa/2-shortcut-testplan-setup
 title: Shortcut/Test Plan Setup
 ---
 ## Shortcut/Test Plan Setup

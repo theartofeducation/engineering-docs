@@ -1,5 +1,5 @@
 ---
-slug: /qa/google-doc-test-plan
+slug: /qa/3-google-doc-test-plan
 title: Google Doc Outline and Setup
 ---
 

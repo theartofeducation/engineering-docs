@@ -1,5 +1,5 @@
 ---
-slug: /qa/introduction
+slug: /qa/1-introduction
 title: Introduction
 ---
 ## Quality Assurance
