@@ -7,13 +7,14 @@ title: Shortcut/Test Plan Setup
 ## Shortcut
 
 Shortcut is the Project Management software our team uses for managing all projects, features, bugs, etc.
-You’ll be given access to [AOEU’s Software Engineering board](https://app.shortcut.com/aoeu-se/stories/space/126/everything). This document’s intent is to describe your role as a QA Engineer when using Shortcut.
+You’ll be given access to [AOEU’s Software Engineering board](https://app.shortcut.com/aoeu-se/stories/space/126/everything). This document outlines your role as a QA Engineer when using Shortcut.
 
 **Columns**
 Each card begins in the Backlog. With every card created, the **Backlog** is where Acceptance Criteria is defined, questions are asked/answered, tasks are outlined when needed and labels are appropriately applied.
 When creating a card, the following is required:
 
 **Title:** A succinct description of the body of work the card will address
+
 **Description:** A deeper explanation of the title.
 If the card is a bug, the following fields with markdown are required:
 
@@ -26,13 +27,13 @@ If the card is a bug, the following fields with markdown are required:
 
 The sidebar on the right contains the remaining required fields: **Project**, **State**, **Team**, **Epic**, **Type**, and **Requester**.
 
-**Tasks** (Optional): Tasks fulfill a multi-purpose function. These are used to break the card down into small chunks and can be checked off when completed. In addition, when creating additional cards related to the parent card, clicking the green arrow converts the card to a new story, at the same time, relating the cards together. This prevents cards from being lost in the process.
+**Tasks** (Optional): Tasks fulfill a multi-purpose function. These are used to break the card down into small chunks and are checked off when completed. In addition, when creating additional cards related to the parent card, clicking the green arrow converts the card to a new story, at the same time, relating the cards together. This prevents cards from being lost in the process.
 
 Once the card is defined and approved by the team, the card is moved to **Ready for Development**.
 
 If the card is in **Ready for Development** and in the current iteration, it can be picked up by the assigned developer according to priority. Priority is set from the top cards being the most important to the bottom cards being the least important.
 
-At this point, the QA that is testing the card can set up the Test Plan and the Test Suite.
+At this point, the QA testing the card can set up the Test Plan and the Test Suite.
 
 The [Test Plan Template](https://docs.google.com/document/d/1x9SMIE0oQKkLs-1dHojrDUh6BS22avjVVF3_PWhC9rM/edit#heading=h.1suokh672aje) offers a guide for testing. When using the template, follow this procedure:
 
