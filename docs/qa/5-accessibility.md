@@ -1,6 +1,8 @@
 ---
+id: 5-accessibility
 slug: /qa/5-accessibility
 title: Accessibility
+sidebar_label: Accessibility
 ---
 ## Accessibility
 

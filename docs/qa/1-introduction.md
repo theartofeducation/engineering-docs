@@ -1,14 +1,16 @@
 ---
+id: 1-introduction
 slug: /qa/1-introduction
 title: Introduction
+sidebar_label: Introduction
 ---
-## Quality Assurance
 
 **We’re glad you’re here!**
 
 This guide is an effort to introduce the current Quality Assurance process and the tools in place. This is a living document that will change and grow as our department and processes develop.
 
 What is Quality Assurance? Why is it important?
+
 *Quality is generally transparent when present, but easily recognized in its absence.
 ~ Alan Gillies*
 

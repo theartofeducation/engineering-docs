@@ -1,9 +1,9 @@
 ---
+id: 3-google-doc-test-plan
 slug: /qa/3-google-doc-test-plan
 title: Google Doc Outline and Setup
+sidebar_label: Google Doc Outline and Setup
 ---
-
-## Google Test Plan
 
 *“Software testing is not only ensuring absence of bugs but also ensuring presence of value.”
 ― Amit Kalantri*
@@ -29,9 +29,12 @@ Let’s break apart what each section covers, how to create Test Scenarios and w
 
     * The test scenarios cover the many ways that a user can use the functionality
     * Documenting how functionality behaves under specific circumstances is housed here.
+
 For example:
-    * *Any user cannot login without following the correct email format*
-    * *Any user can login when following the correct email format*
+
+* `Any user cannot login without following the correct email format`
+* `Any user can login when following the correct email format`
+
 This defines what a user can or cannot do under specific circumstances. These scenarios are the groundwork for the test cases that are added in Qase.io
 
 * Browser Compatibility and Viewports:
@@ -41,7 +44,7 @@ This defines what a user can or cannot do under specific circumstances. These sc
 * A11y Testing:
 
 * Accessibility testing is crucial for users that have specific needs which aid in device usage. We want our software to be inclusive on every level and Accessibility testing is how we achieve this.
-* Our current tool is the [AXE DevTools Browser Extension](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US) which we’ll discuss in the [Accessibility](https://docs.google.com/document/d/1SqFKZVzQU9RVII60cyNagdafTVqVmHMJ6zF0ws0mSUw/edit#heading=h.kwmjf2rbjxk9) testing document.
+* Our current tool is the [AXE DevTools Browser Extension](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US) which we’ll discuss in the [Accessibility](5-accessibility) testing document.
 
 * SQL Injection Testing:
 
@@ -51,4 +54,4 @@ This defines what a user can or cannot do under specific circumstances. These sc
 * Automation Test Created:
 
     * The only piece of information needed here is the link you created for Shortcut.
-    * We’ll cover the usage of Qase.io in our [Test Case Management](https://docs.google.com/document/d/1Rr6l4KkTMogOi4Fb_RKZmrXbzWrQZ1rOvgfJ0TFE_GI/edit#heading=h.kwmjf2rbjxk9) documentation.
+    * We’ll cover the usage of Qase.io in our [Test Case Management](4-qase-io) documentation.

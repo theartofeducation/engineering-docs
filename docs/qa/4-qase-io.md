@@ -1,6 +1,8 @@
 ---
+id: 4-qase-io
 slug: /qa/4-qase-io
 title: Qase.io
+sidebar_label: Qase.io
 ---
 
 ## Writing Test Cases with Qase.io

@@ -1,10 +1,9 @@
 ---
+id: 2-shortcut-testplan-setup
 slug: /qa/2-shortcut-testplan-setup
 title: Shortcut/Test Plan Setup
+sidebar_label: Shortcut/Test Plan Setup
 ---
-## Shortcut/Test Plan Setup
-
-## Shortcut
 
 Shortcut is the Project Management software our team uses for managing all projects, features, bugs, etc.
 You’ll be given access to [AOEU’s Software Engineering board](https://app.shortcut.com/aoeu-se/stories/space/126/everything). This document outlines your role as a QA Engineer when using Shortcut.
@@ -76,4 +75,4 @@ In the Clubhouse card, click “Edit Description” and in the Description field
 You’re done! The Shortcut card now has all the elements ready for testing.
 The rest of the process is described in the Software Engineering Handbook under Software Development Life Cycle
 
-Next, let’s dive deeper into the [Google Doc Test Plan](https://docs.google.com/document/d/1Rr6l4KkTMogOi4Fb_RKZmrXbzWrQZ1rOvgfJ0TFE_GI/edit?usp=sharing) and [Qase.io](https://docs.google.com/document/d/1zoGb8P-twZB3zve8VUTnuSgPgBR-PYYIPT7l2EnOmKI/edit?usp=sharing).
+Next, let’s dive deeper into the [Google Doc Test Plan](3-google-doc-test-plan) and [Qase.io](4-qase-io).
