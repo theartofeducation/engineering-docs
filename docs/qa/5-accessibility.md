@@ -4,9 +4,10 @@ slug: /qa/5-accessibility
 title: Accessibility
 sidebar_label: Accessibility
 ---
-## Accessibility
 
-*"I wish for a world that views disability, mental or physical, not as a hindrance but as unique attributes that can be seen as powerful assets if given the right opportunities." - Oliver Sacks*
+*I wish for a world that views disability, mental or physical, not as a hindrance but as unique attributes that can be seen as powerful assets if given the right opportunities.”
+~ Oliver Sacks*
+
 At AOEU, we believe in making the rigorous, relevant, and engaging content we create available and accessible to all. This points us to using tools that accomplish exactly that.
 This is an area we will always grow in. When we learn about tools that make us better testers on the path to accessibility, those will be learned, integrated, and documented.
 
