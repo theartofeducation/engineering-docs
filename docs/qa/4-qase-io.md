@@ -10,8 +10,6 @@ sidebar_label: Qase.io
 
 We’re getting our 🦆 🦆 🦆 in a row: Everything we need is in [Shortcut](2-shortcut-test-plan.md) and the [Test Plan](3-google-doc-test-plan.md) is in place. Next we write test cases in [Qase.io](https://app.qase.io/projects).
 
-## Qase.io
-
 Once you're signed in, click the appropriate project. In this example, we’ll use “User Registration and Management":
 
 Qase Projects are mapped to better reflect Shortcut:
@@ -89,7 +87,7 @@ Woo hoo! Now onto the next test case!
 
 **Qase Tips and Tricks:**
 
-* Want to fast track your test case writing since you only need to change a few key words? You can Clone a test case by clicking the existing test case and clicking the “Clone” option.
+* Want to fast track your test case writing since you only need to change a few key words? You can clone a test case by clicking the existing test case and clicking the “Clone” option.
 
 * Did you test something in the User-Service and now need to test the same cases in the API? Hover over the Suite Name, click the clone option and a pop-up will appear. Select the Epic name from the 2nd dropdown, and click the “Clone with Children” checkbox. Edit the suite to reflect the correct tests and you’re done!
 

@@ -8,13 +8,18 @@ sidebar_label: Shortcut/Test Plan Setup
 Shortcut is the Project Management software our team uses for managing all projects, features, bugs, etc.
 You’ll be given access to [AOEU’s Software Engineering board](https://app.shortcut.com/aoeu-se/stories/space/126/everything). This document outlines your role as a QA Engineer when using Shortcut.
 
-**Columns**
+**Columns:**
+
 Each card begins in the Backlog. With every card created, the **Backlog** is where Acceptance Criteria is defined, questions are asked/answered, tasks are outlined when needed and labels are appropriately applied.
 When creating a card, the following is required:
 
-**Title:** A succinct description of the body of work the card will address
+**Title:**
 
-**Description:** A deeper explanation of the title.
+A succinct description of the body of work the card will address
+
+**Description:**
+
+ A deeper explanation of the title.
 If the card is a bug, the following fields with markdown are required:
 
 * `## Expected:`
@@ -26,7 +31,9 @@ If the card is a bug, the following fields with markdown are required:
 
 The sidebar on the right contains the remaining required fields: **Project**, **State**, **Team**, **Epic**, **Type**, and **Requester**.
 
-**Tasks** (Optional): Tasks fulfill a multi-purpose function. These are used to break the card down into small chunks and are checked off when completed. In addition, when creating additional cards related to the parent card, clicking the green arrow converts the card to a new story, at the same time, relating the cards together. This prevents cards from being lost in the process.
+**Tasks** (Optional):
+
+Tasks fulfill a multi-purpose function. These are used to break the card down into small chunks and are checked off when completed. In addition, when creating additional cards related to the parent card, clicking the green arrow converts the card to a new story, at the same time, relating the cards together. This prevents cards from being lost in the process.
 
 Once the card is defined and approved by the team, the card is moved to **Ready for Development**.
 

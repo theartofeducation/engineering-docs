@@ -11,7 +11,8 @@ sidebar_label: Accessibility
 At AOEU, we believe in making the rigorous, relevant, and engaging content we create available and accessible to all. This points us to using tools that accomplish exactly that.
 This is an area we will always grow in. When we learn about tools that make us better testers on the path to accessibility, those will be learned, integrated, and documented.
 
-**AxeTools**
+**AxeTools:**
+
 Axe DevTools is a [browser extension](https://www.deque.com/axe/browser-extensions/) available for [Chrome](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/axe-devtools/), and [Edge](https://microsoftedge.microsoft.com/addons/detail/axe-web-accessibility-t/kcenlimkmjjkdfcaleembgmldmnnlfkn). [Deque Systems](https://www.deque.com/) created the extension to quickly catch accessibility issues caused by insufficient color contrast, elements that need to be identified for screen reader usage, and much more.
 Installation and usage is easy peasy so let’s get started.
 
@@ -49,5 +50,6 @@ Use Axe DevTools when you are testing different devices. Some issues do not occu
 Do you know of a tool that will help us reach our goal of creating accessibility for everyone? Put your idea in the softwareengineering channel. Let’s talk about it!
 
 **References:**
+
 [https://www.ted.com/talks/caroline_casey_looking_past_limits](https://www.ted.com/talks/caroline_casey_looking_past_limits )
 [https://www.ted.com/talks/isaac_lidsky_what_reality_are_you_creating_for_yourself](https://www.ted.com/talks/isaac_lidsky_what_reality_are_you_creating_for_yourself )
