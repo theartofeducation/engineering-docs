@@ -29,6 +29,18 @@ module.exports = {
           "source-control/new-repo"
         ]
       },
+      {
+        type: "category",
+        label: "Quality Assurance",
+        collapsed: true,
+        items: [
+          "qa/1-introduction",
+          "qa/2-shortcut-testplan-setup",
+          "qa/3-google-doc-test-plan",
+          "qa/4-qase-io",
+          "qa/5-accessibility"
+        ]
+      },
       "wordpress-bug-tracking",
       "technology-stack",
       "software-development-lifecycle",
