@@ -35,7 +35,8 @@ and plugins ) don't need this and the default branch will be `main`.
 ## Branch Rules & Setup
 
 * For default branch
-    * Require pull request reviews before merging: Require at least 2 reviews
+    * Require a pull request before merging
+        * Require at least 3 approvals
         * Dismiss stale pull request approvals when new commits are pushed
         * Require review from Code Owners if the repo has / needs a code owner
     * Require status checks to pass before merging
